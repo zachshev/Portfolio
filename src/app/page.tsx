@@ -2,85 +2,58 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const categories = [
   {
-    title: "Portrait Painting",
-    href: "/artwork",
-    image: "/Portrait oil sketch/Portrait Oil Sketch Muse_.jpg",
+    title: "Portrait Paintings",
+    href: "/artwork?category=Portrait%20Paintings",
+    image: "/Portrait Paintings/The Greenwalds.jpg",
   },
   {
-    title: "Oil Sketches",
-    href: "/artwork",
+    title: "Portrait Oil Sketch",
+    href: "/artwork?category=Portrait%20Oil%20Sketch",
     image: "/Portrait oil sketch/Oil Sketch Ana.jpg",
   },
   {
-    title: "Pastel Drawings",
-    href: "/artwork",
+    title: "Portrait Drawing",
+    href: "/artwork?category=Portrait%20Drawing",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
   },
   {
-    title: "Pet Portraiture",
-    href: "/artwork",
+    title: "Pet Portrait",
+    href: "/artwork?category=Pet%20Portrait",
     image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
   },
   {
-    title: "Charcoal Studies",
-    href: "/artwork",
-    image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
-  },
-  {
-    title: "Graphite Studies",
-    href: "/artwork",
-    image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
+    title: "Artworks For Sale",
+    href: "/artwork?category=Artworks%20For%20Sale",
+    image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG",
   },
 ];
 
 function CategoryCard({ cat, idx }: { cat: any; idx: number }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
-
   return (
     <Link href={cat.href}>
-      <motion.div
-        ref={ref}
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{
-          duration: 1.2,
-          delay: idx * 0.15,
-          ease: [0.16, 1, 0.3, 1], // Smooth spatial easing
-        }}
-        className="group relative aspect-[3/4] md:aspect-[4/5] overflow-hidden bg-[#c9c9c4] cursor-pointer shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm"
-      >
-        {/* Parallax Image Layer */}
-        <motion.div style={{ y }} className="absolute inset-0 scale-[1.2]">
+      <div className={`flex flex-col ${idx % 2 !== 0 ? "md:mt-24" : ""}`}>
+        <div className="relative w-full overflow-hidden mb-6 group cursor-pointer bg-[#D9D9D4]/20">
           <Image
             src={cat.image}
             alt={cat.title}
-            fill
-            className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            width={0}
+            height={0}
             sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="transition-transform duration-1000 group-hover:scale-105"
           />
-        </motion.div>
-
-        {/* Subtle Overlay Layer */}
-        <div className="absolute inset-0 bg-[#2a2a2a]/0 transition-all duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[#2a2a2a]/20 flex items-center justify-center border border-white/0 group-hover:border-white/10">
-          <div className="overflow-hidden px-6 text-center">
-            <h2 className="font-serif text-3xl md:text-4xl text-white tracking-widest opacity-0 transform translate-y-8 transition-all duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-100 group-hover:translate-y-0">
-              {cat.title}
-            </h2>
-          </div>
         </div>
-      </motion.div>
+        <div className="flex justify-between items-center px-2">
+          <h3 className="font-serif text-xl tracking-wider text-[#2a2a2a]">{cat.title}</h3>
+          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50">
+            View Collection
+          </span>
+        </div>
+      </div>
     </Link>
   );
 }

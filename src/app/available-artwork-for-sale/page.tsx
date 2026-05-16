@@ -64,14 +64,16 @@ function ArtworkRow({ art, idx }: { art: any; idx: number }) {
         idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
       } gap-8 md:gap-16 lg:gap-24 items-center group`}
     >
-      <div className={`w-full md:w-1/2 relative ${art.aspect} bg-[#c9c9c4] overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm`}>
-        <motion.div style={{ y }} className="absolute inset-0 scale-[1.25]">
+      <div className={`w-full md:w-1/2 relative overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm bg-[#D9D9D4]/20 flex justify-center items-center`}>
+        <motion.div style={{ y }} className="w-full scale-[1.15]">
           <Image
             src={art.image}
             alt={art.title}
-            fill
-            className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            width={0}
+            height={0}
             sizes="(max-width: 768px) 100vw, 50vw"
+            style={{ width: '100%', height: 'auto' }}
+            className="transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
           />
         </motion.div>
         {/* Subtle Overlay */}

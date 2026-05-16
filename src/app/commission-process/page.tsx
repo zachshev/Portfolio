@@ -65,6 +65,111 @@ const steps = [
   },
 ];
 
+const pricingData = [
+  {
+    category: "Oil Portrait Paintings",
+    items: [
+      {
+        subcategory: "Head and Shoulders",
+        prices: [
+          { size: "16” × 20”", price: "$1,500" },
+          { size: "18” × 24”", price: "$2,100" },
+          { size: "20” × 24”", price: "$2,400" },
+        ],
+      },
+      {
+        subcategory: "Half Body",
+        prices: [
+          { size: "20” × 24”", price: "$3,400" },
+          { size: "24” × 36”", price: "$4,800" },
+        ],
+      },
+      {
+        subcategory: "Half Body with Hands",
+        prices: [
+          { size: "20” × 24”", price: "$4,200" },
+          { size: "24” × 36”", price: "$5,000" },
+        ],
+      },
+      {
+        subcategory: "Full Body",
+        prices: [
+          { size: "24” × 36”", price: "Starting at $6,000" },
+        ],
+      },
+    ],
+  },
+  {
+    category: "Oil Portrait Sketches",
+    items: [
+      {
+        subcategory: "",
+        prices: [
+          { size: "8” × 10”", price: "$450" },
+          { size: "11” × 14”", price: "$600" },
+          { size: "16” × 20”", price: "$900" },
+          { size: "18” × 24”", price: "$1,200" },
+        ],
+      },
+    ],
+  },
+  {
+    category: "Pastel Portrait Drawings",
+    items: [
+      {
+        subcategory: "Head and Shoulders",
+        prices: [
+          { size: "9” × 12”", price: "$400" },
+          { size: "11” × 14”", price: "$650" },
+          { size: "16” × 20”", price: "$900" },
+          { size: "18” × 24”", price: "$1,250" },
+        ],
+      },
+      {
+        subcategory: "Full Figure / Ballerina Portraits",
+        prices: [
+          { size: "18” × 24”", price: "$900" },
+          { size: "24” × 36”", price: "$1,500" },
+        ],
+      },
+    ],
+  },
+  {
+    category: "Graphite Portrait Drawings",
+    items: [
+      {
+        subcategory: "",
+        prices: [
+          { size: "9” × 12”", price: "$400" },
+          { size: "11” × 14”", price: "$650" },
+          { size: "16” × 20”", price: "$900" },
+        ],
+      },
+    ],
+  },
+  {
+    category: "Pet Portraits",
+    items: [
+      {
+        subcategory: "Oil",
+        prices: [
+          { size: "8” × 10”", price: "$450" },
+          { size: "11” × 14”", price: "$600" },
+          { size: "16” × 20”", price: "$900" },
+        ],
+      },
+      {
+        subcategory: "Pastel",
+        prices: [
+          { size: "8” × 10”", price: "$300" },
+          { size: "11” × 14”", price: "$550" },
+          { size: "16” × 20”", price: "$900" },
+        ],
+      },
+    ],
+  },
+];
+
 export default function CommissionProcessPage() {
   return (
     <div className="container mx-auto px-6 md:px-12 py-12 md:py-24 max-w-4xl">
@@ -104,6 +209,66 @@ export default function CommissionProcessPage() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      {/* Pricing Section */}
+      <div className="mt-32 pt-24 border-t border-[#2a2a2a]/10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-24 text-center"
+        >
+          <h2 className="font-serif text-3xl md:text-5xl text-[#2a2a2a] tracking-widest uppercase mb-6">
+            Commission Pricing
+          </h2>
+        </motion.div>
+
+        <div className="space-y-32">
+          {pricingData.map((section, idx) => (
+            <motion.div
+              key={section.category}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="flex flex-col"
+            >
+              <h3 className="font-serif text-2xl md:text-3xl tracking-widest text-[#2a2a2a] mb-12 text-center border-b border-[#2a2a2a]/10 pb-8">
+                {section.category}
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+                {section.items.map((item, itemIdx) => (
+                  <div key={itemIdx} className="flex flex-col">
+                    {item.subcategory && (
+                      <h4 className="font-serif text-xl tracking-widest text-[var(--accent)] mb-6 uppercase text-sm">
+                        {item.subcategory}
+                      </h4>
+                    )}
+                    <ul className="space-y-4">
+                      {item.prices.map((priceLine, priceIdx) => (
+                        <li
+                          key={priceIdx}
+                          className="flex justify-between items-baseline group"
+                        >
+                          <span className="font-sans text-[#2a2a2a]/80 text-lg font-light group-hover:text-[var(--accent)] transition-colors duration-300">
+                            {priceLine.size}
+                          </span>
+                          <div className="flex-1 mx-4 border-b border-dashed border-[#2a2a2a]/20 opacity-50 relative top-[-6px]"></div>
+                          <span className="font-serif text-[#2a2a2a] text-lg tracking-wider">
+                            {priceLine.price}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <motion.div

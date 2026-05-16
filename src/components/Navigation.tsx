@@ -13,7 +13,6 @@ const navLinks = [
   { name: "Artwork", href: "/artwork" },
   { name: "Available Artwork", href: "/available-artwork-for-sale" },
   { name: "Commission Process", href: "/commission-process" },
-  { name: "Commission Pricing", href: "/commission-pricing" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -36,16 +35,12 @@ export default function Navigation() {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
       document.documentElement.classList.add("lenis-stopped");
-      // Add touch-action none to body to prevent iOS scroll bleed
-      document.body.style.touchAction = "none";
     } else {
       document.body.style.overflow = "";
-      document.body.style.touchAction = "";
       document.documentElement.classList.remove("lenis-stopped");
     }
     return () => {
       document.body.style.overflow = "";
-      document.body.style.touchAction = "";
       document.documentElement.classList.remove("lenis-stopped");
     };
   }, [isMobileMenuOpen]);
@@ -110,28 +105,30 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#D9D9D4] z-[105] flex flex-col justify-center items-center overflow-hidden overscroll-none touch-none"
+            className="fixed inset-0 bg-[#D9D9D4] z-[105] overflow-y-auto overscroll-contain"
           >
             <button
-              className="fixed top-6 right-6 text-[#2a2a2a] hover:text-[var(--accent)] transition-colors p-4 z-[110]"
+              className="absolute top-6 right-6 text-[#2a2a2a] hover:text-[var(--accent)] transition-colors p-4 z-[110]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X className="w-8 h-8" />
             </button>
-            <nav className="flex flex-col items-center justify-center space-y-10 w-full px-6 py-20 min-h-full">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`font-serif text-3xl md:text-4xl tracking-wider transition-all duration-300 hover:text-[var(--accent)] hover:scale-105 ${
-                    pathname === link.href ? "text-[var(--accent)]" : "text-[#2a2a2a]"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-            </nav>
+            <div className="flex flex-col items-center justify-center min-h-[100dvh] py-24 px-6">
+              <nav className="flex flex-col items-center justify-center space-y-8 w-full">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`font-serif text-center text-3xl md:text-4xl tracking-wider transition-all duration-300 hover:text-[var(--accent)] hover:scale-105 ${
+                      pathname === link.href ? "text-[var(--accent)]" : "text-[#2a2a2a]"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </nav>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

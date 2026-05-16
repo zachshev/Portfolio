@@ -4,73 +4,78 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const artworks = [
+  // Portrait Paintings
+  { id: 31, title: "Mom", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Mom.jpg" },
+  { id: 32, title: "Sara", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Sara.jpg" },
+  { id: 33, title: "Self Portrait", category: "Portrait Paintings", image: "/Portrait Paintings/Self Portrait.jpg" },
+  { id: 34, title: "The Greenwalds", category: "Portrait Paintings", image: "/Portrait Paintings/The Greenwalds.jpg" },
+
   // Oil Sketches
-  { id: 1, title: "Ana", category: "Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Ana.jpg", aspect: "aspect-[3/4]" },
-  { id: 2, title: "Bob", category: "Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Bob.jpg", aspect: "aspect-[3/4]" },
-  { id: 3, title: "Jim", category: "Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Jim.jpg", aspect: "aspect-[3/4]" },
-  { id: 4, title: "Mattisse", category: "Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Mattisse.jpg", aspect: "aspect-[3/4]" },
-  { id: 5, title: "Alaina", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Alaina.PNG", aspect: "aspect-[3/4]" },
-  { id: 6, title: "Stephanie", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Blonde Stephanie.PNG", aspect: "aspect-[3/4]" },
-  { id: 7, title: "Elderly Woman", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Elderly Woman.PNG", aspect: "aspect-[3/4]" },
-  { id: 8, title: "Johnathan", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Johnathan.JPG", aspect: "aspect-[3/4]" },
-  { id: 9, title: "Muse", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Muse_.jpg", aspect: "aspect-[3/4]" },
-  { id: 10, title: "Pearl Earring", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Pearl Earring.PNG", aspect: "aspect-[3/4]" },
-  { id: 11, title: "Rebecca", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG", aspect: "aspect-[3/4]" },
-  { id: 12, title: "Sara", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sara.JPG", aspect: "aspect-[3/4]" },
-  { id: 13, title: "Sherman", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sherman.PNG", aspect: "aspect-[3/4]" },
-  { id: 14, title: "Goatee Study", category: "Oil Sketch", image: "/Portrait oil sketch/Portrait Sketch Oil Goatee.jpg", aspect: "aspect-[3/4]" },
+  { id: 1, title: "Ana", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Ana.jpg" },
+  { id: 2, title: "Bob", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Bob.jpg" },
+  { id: 3, title: "Jim", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Jim.jpg" },
+  { id: 4, title: "Mattisse", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Mattisse.jpg" },
+  { id: 5, title: "Alaina", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Alaina.PNG" },
+  { id: 6, title: "Stephanie", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Blonde Stephanie.PNG" },
+  { id: 7, title: "Elderly Woman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Elderly Woman.PNG" },
+  { id: 8, title: "Johnathan", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Johnathan.JPG" },
+  { id: 9, title: "Muse", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Muse_.jpg" },
+  { id: 10, title: "Pearl Earring", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Pearl Earring.PNG" },
+  { id: 11, title: "Rebecca", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG" },
+  { id: 12, title: "Sara", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sara.JPG" },
+  { id: 13, title: "Sherman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sherman.PNG" },
+  { id: 14, title: "Goatee Study", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Sketch Oil Goatee.jpg" },
 
   // Drawings
-  { id: 15, title: "Gypsy", category: "Charcoal Portrait", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg", aspect: "aspect-[3/4]" },
-  { id: 16, title: "Ariane", category: "Graphite Drawing", image: "/Portrait drawing/Graphite Drawing Ariane_.jpg", aspect: "aspect-[3/4]" },
-  { id: 17, title: "Winston Churchill", category: "Graphite Drawing", image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg", aspect: "aspect-[3/4]" },
-  { id: 18, title: "Alaina", category: "Graphite Portrait", image: "/Portrait drawing/Graphite Portrait Alaina.jpg", aspect: "aspect-[3/4]" },
-  { id: 19, title: "Camille", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Camille.JPG", aspect: "aspect-[3/4]" },
-  { id: 20, title: "Study in Pastel 1", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Girl 1.JPG", aspect: "aspect-[3/4]" },
-  { id: 21, title: "Study in Pastel 2", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Girl 2.JPG", aspect: "aspect-[3/4]" },
-  { id: 22, title: "Study in Pastel 3", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Girl 3.JPG", aspect: "aspect-[3/4]" },
-  { id: 23, title: "Study in Pastel 4", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Girl 4.JPG", aspect: "aspect-[3/4]" },
-  { id: 24, title: "Study in Pastel 5", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Girl 5.JPG", aspect: "aspect-[3/4]" },
-  { id: 25, title: "Study in Pastel 6", category: "Pastel Drawing", image: "/Portrait drawing/Pastel Drawing Girl 6.JPG", aspect: "aspect-[3/4]" },
+  { id: 15, title: "Gypsy", category: "Portrait Drawing", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg" },
+  { id: 16, title: "Ariane", category: "Portrait Drawing", image: "/Portrait drawing/Graphite Drawing Ariane_.jpg" },
+  { id: 17, title: "Winston Churchill", category: "Portrait Drawing", image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg" },
+  { id: 18, title: "Alaina", category: "Portrait Drawing", image: "/Portrait drawing/Graphite Portrait Alaina.jpg" },
+  { id: 19, title: "Camille", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Camille.JPG" },
+  { id: 20, title: "Study in Pastel 1", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 1.JPG" },
+  { id: 21, title: "Study in Pastel 2", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 2.JPG" },
+  { id: 22, title: "Study in Pastel 3", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 3.JPG" },
+  { id: 23, title: "Study in Pastel 4", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 4.JPG" },
+  { id: 24, title: "Study in Pastel 5", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 5.JPG" },
+  { id: 25, title: "Study in Pastel 6", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 6.JPG" },
 
   // Pet Portraits
-  { id: 26, title: "Benny", category: "Pet Portrait", image: "/Pet portrait/Pet Portrait Oil Benny.jpg", aspect: "aspect-[3/4]" },
+  { id: 26, title: "Benny", category: "Pet Portrait", image: "/Pet portrait/Pet Portrait Oil Benny.jpg" },
 
   // Artworks For Sale
-  { id: 27, title: "Alaina (Study)", category: "For Sale", price: "$200", image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG", aspect: "aspect-[3/4]" },
-  { id: 28, title: "Muse (Large)", category: "For Sale", price: "$500", image: "/Artworks For Sale/(Price 500)ortrait Oil Sketch Muse  (Size 18_x24_).JPG", aspect: "aspect-[3/4]" },
-  { id: 29, title: "Rebecca (Study)", category: "For Sale", price: "$300", image: "/Artworks For Sale/Price (300) - Portrait Oil Sketch Rebecca (size 11_x14_).JPG", aspect: "aspect-[3/4]" },
-  { id: 30, title: "Goatee Study", category: "For Sale", price: "$500", image: "/Artworks For Sale/Price (500) Portrait Sketch Oil Goatee (Size 18_x24_).JPG", aspect: "aspect-[3/4]" },
+  { id: 27, title: "Alaina (Study)", category: "Artworks For Sale", price: "$200", image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG" },
+  { id: 28, title: "Muse (Large)", category: "Artworks For Sale", price: "$500", image: "/Artworks For Sale/(Price 500)ortrait Oil Sketch Muse  (Size 18_x24_).JPG" },
+  { id: 29, title: "Rebecca (Study)", category: "Artworks For Sale", price: "$300", image: "/Artworks For Sale/Price (300) - Portrait Oil Sketch Rebecca (size 11_x14_).JPG" },
+  { id: 30, title: "Goatee Study", category: "Artworks For Sale", price: "$500", image: "/Artworks For Sale/Price (500) Portrait Sketch Oil Goatee (Size 18_x24_).JPG" },
 ];
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
 const subcategories = [
   "All",
-  "Pet Portrait",
+  "Portrait Paintings",
+  "Portrait Oil Sketch",
   "Portrait Drawing",
-  "Portraits Oil Sketch",
-  "Portrait Painting",
-  "For Sale"
+  "Pet Portrait",
+  "Artworks For Sale"
 ];
 
-export default function ArtworkPage() {
-  const [activeCategory, setActiveCategory] = useState("All");
+function ArtworkGallery() {
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get("category");
+  const initialCategory = (categoryParam && subcategories.includes(categoryParam)) ? categoryParam : "All";
+
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  useEffect(() => {
+    if (categoryParam && subcategories.includes(categoryParam)) {
+      setActiveCategory(categoryParam);
+    }
+  }, [categoryParam]);
 
   const filteredArtworks = artworks.filter((art) => {
     if (activeCategory === "All") return true;
-    if (activeCategory === "Portrait Drawing") {
-      return [
-        "Charcoal Portrait",
-        "Graphite Drawing",
-        "Graphite Portrait",
-        "Pastel Drawing",
-        "Portrait Drawing",
-      ].includes(art.category);
-    }
-    if (activeCategory === "Portraits Oil Sketch") {
-      return ["Oil Sketch", "Portraits Oil Sketch"].includes(art.category);
-    }
     return art.category === activeCategory;
   });
 
@@ -114,25 +119,19 @@ export default function ArtworkPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
         {filteredArtworks.map((art, idx) => (
-          <motion.div
-            key={`${activeCategory}-${art.id}`} // Force re-animation on filter change
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{
-              duration: 1,
-              delay: (idx % 4) * 0.1, // Stagger effect resets per batch
-              ease: [0.22, 1, 0.36, 1],
-            }}
+          <div
+            key={`${activeCategory}-${art.id}`}
             className={`flex flex-col ${idx % 2 !== 0 ? "md:mt-24" : ""}`}
           >
-            <div className={`relative w-full ${art.aspect} bg-[#c9c9c4] overflow-hidden mb-6 group cursor-pointer`}>
+            <div className="relative w-full overflow-hidden mb-6 group cursor-pointer bg-[#D9D9D4]/20">
               <Image
                 src={art.image}
                 alt={art.title}
-                fill
-                className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                width={0}
+                height={0}
                 sizes="(max-width: 768px) 100vw, 50vw"
+                style={{ width: '100%', height: 'auto' }}
+                className="transition-transform duration-1000 group-hover:scale-105"
               />
             </div>
             <div className="flex justify-between items-center px-2">
@@ -155,7 +154,7 @@ export default function ArtworkPage() {
                 </a>
               </div>
             )}
-          </motion.div>
+          </div>
         ))}
       </div>
       
@@ -171,5 +170,13 @@ export default function ArtworkPage() {
         </motion.div>
       )}
     </div>
+  );
+}
+
+export default function ArtworkPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-6 py-24 text-center font-sans tracking-widest uppercase text-sm">Loading gallery...</div>}>
+      <ArtworkGallery />
+    </Suspense>
   );
 }
