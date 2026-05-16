@@ -79,8 +79,8 @@ export default function Navigation() {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-sm tracking-widest uppercase transition-colors duration-300 hover:text-[var(--accent)] ${
-                pathname === link.href ? "text-[var(--accent)]" : "text-[#2a2a2a]/70"
+              className={`text-sm tracking-widest uppercase transition-colors duration-300 hover:text-[#3E4D55] ${
+                pathname === link.href ? "text-[#3E4D55]" : "text-[#2a2a2a]/70"
               }`}
             >
               {link.name}
@@ -90,7 +90,7 @@ export default function Navigation() {
 
         {/* Mobile Nav Toggle */}
         <button
-          className="md:hidden text-[#2a2a2a] hover:text-[var(--accent)] transition-colors w-6 flex justify-end"
+          className="md:hidden text-[#2a2a2a] hover:text-[#3E4D55] transition-colors w-6 flex justify-end"
           onClick={() => setIsMobileMenuOpen(true)}
         >
           <Menu className="w-6 h-6" />
@@ -108,7 +108,7 @@ export default function Navigation() {
             className="fixed inset-0 bg-[#D9D9D4] z-[105] overflow-y-auto overscroll-contain"
           >
             <button
-              className="absolute top-6 right-6 text-[#2a2a2a] hover:text-[var(--accent)] transition-colors p-4 z-[110]"
+              className="absolute top-6 right-6 text-[#2a2a2a] hover:text-[#3E4D55] transition-colors p-4 z-[110]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X className="w-8 h-8" />
@@ -120,8 +120,8 @@ export default function Navigation() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`font-serif text-center text-3xl md:text-4xl tracking-wider transition-all duration-300 hover:text-[var(--accent)] hover:scale-105 ${
-                      pathname === link.href ? "text-[var(--accent)]" : "text-[#2a2a2a]"
+                    className={`font-serif text-center text-3xl md:text-4xl tracking-wider transition-all duration-300 hover:text-[#3E4D55] hover:scale-105 ${
+                      pathname === link.href ? "text-[#3E4D55]" : "text-[#2a2a2a]"
                     }`}
                   >
                     {link.name}
