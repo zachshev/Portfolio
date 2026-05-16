@@ -49,8 +49,8 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isScrolled
-          ? "bg-[#D9D9D4]/85 backdrop-blur-2xl py-4 shadow-[0_10px_30px_rgba(0,0,0,0.05)] border-b border-[#2a2a2a]/5"
-          : "bg-transparent py-6 border-b border-transparent"
+          ? "bg-[#3E4D55] py-4 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-b border-white/5"
+          : "bg-[#3E4D55] py-6 border-b border-transparent"
       }`}
     >
       <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -66,7 +66,7 @@ export default function Navigation() {
             alt="Zach Shev Logo"
             width={400}
             height={266}
-            className={`transition-all duration-700 w-auto object-contain ${
+            className={`transition-all duration-700 w-auto object-contain brightness-0 invert ${
               isScrolled ? "h-16 md:h-20" : "h-20 md:h-28"
             }`}
             priority
@@ -79,8 +79,8 @@ export default function Navigation() {
             <Link
               key={link.name}
               href={link.href}
-              className={`text-sm tracking-widest uppercase transition-colors duration-300 hover:text-[#3E4D55] ${
-                pathname === link.href ? "text-[#3E4D55]" : "text-[#2a2a2a]/70"
+              className={`text-sm tracking-widest uppercase transition-colors duration-300 hover:text-white ${
+                pathname === link.href ? "text-white" : "text-white/70"
               }`}
             >
               {link.name}
@@ -90,7 +90,7 @@ export default function Navigation() {
 
         {/* Mobile Nav Toggle */}
         <button
-          className="md:hidden text-[#2a2a2a] hover:text-[#3E4D55] transition-colors w-6 flex justify-end"
+          className="md:hidden text-white/90 hover:text-white transition-colors w-6 flex justify-end"
           onClick={() => setIsMobileMenuOpen(true)}
         >
           <Menu className="w-6 h-6" />
@@ -105,10 +105,10 @@ export default function Navigation() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "-100%" }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 bg-[#D9D9D4] z-[105] overflow-y-auto overscroll-contain"
+            className="fixed inset-0 bg-[#3E4D55] z-[105] overflow-y-auto overscroll-contain"
           >
             <button
-              className="absolute top-6 right-6 text-[#2a2a2a] hover:text-[#3E4D55] transition-colors p-4 z-[110]"
+              className="absolute top-6 right-6 text-white/90 hover:text-white transition-colors p-4 z-[110]"
               onClick={() => setIsMobileMenuOpen(false)}
             >
               <X className="w-8 h-8" />
@@ -120,8 +120,8 @@ export default function Navigation() {
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`font-serif text-center text-3xl md:text-4xl tracking-wider transition-all duration-300 hover:text-[#3E4D55] hover:scale-105 ${
-                      pathname === link.href ? "text-[#3E4D55]" : "text-[#2a2a2a]"
+                    className={`font-serif text-center text-3xl md:text-4xl tracking-wider transition-all duration-300 hover:text-white hover:scale-105 ${
+                      pathname === link.href ? "text-white" : "text-white/80"
                     }`}
                   >
                     {link.name}
