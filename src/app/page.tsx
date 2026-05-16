@@ -4,39 +4,50 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const categories = [
+const homepageItems = [
   {
     title: "Portrait Paintings",
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
+    className: "md:col-span-7",
   },
   {
-    title: "Portrait Oil Sketch",
-    href: "/artwork?category=Portrait%20Oil%20Sketch",
-    image: "/Portrait oil sketch/Oil Sketch Ana.jpg",
-  },
-  {
-    title: "Portrait Drawing",
+    title: "Pastel Drawings",
     href: "/artwork?category=Portrait%20Drawing",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
+    className: "md:col-span-5",
   },
   {
-    title: "Pet Portrait",
+    title: "Oil Sketches",
+    href: "/artwork?category=Portrait%20Oil%20Sketch",
+    image: "/Portrait oil sketch/Oil Sketch Ana.jpg",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Graphite Portraits",
+    href: "/artwork?category=Portrait%20Drawing",
+    image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Charcoal Studies",
+    href: "/artwork?category=Portrait%20Drawing",
+    image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Pet Portraits",
     href: "/artwork?category=Pet%20Portrait",
     image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
-  },
-  {
-    title: "Artworks For Sale",
-    href: "/artwork?category=Artworks%20For%20Sale",
-    image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG",
+    className: "md:col-span-4 md:col-start-5",
   },
 ];
 
-function CategoryCard({ cat, idx }: { cat: any; idx: number }) {
+function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
   return (
-    <Link href={cat.href}>
-      <div className={`flex flex-col ${idx % 2 !== 0 ? "md:mt-24" : ""}`}>
-        <div className="relative w-full overflow-hidden mb-6 group cursor-pointer bg-[#D9D9D4]/20">
+    <Link href={cat.href} className={`block ${cat.className}`}>
+      <div className="flex flex-col">
+        <div className="relative w-full mb-6 group cursor-pointer bg-[#D9D9D4]/20">
           <Image
             src={cat.image}
             alt={cat.title}
@@ -44,7 +55,7 @@ function CategoryCard({ cat, idx }: { cat: any; idx: number }) {
             height={0}
             sizes="(max-width: 768px) 100vw, 50vw"
             style={{ width: '100%', height: 'auto' }}
-            className="transition-transform duration-1000 group-hover:scale-105"
+            className="transition-transform duration-1000"
           />
         </div>
         <div className="flex justify-between items-center px-2">
@@ -86,9 +97,9 @@ export default function Home() {
       </section>
 
       {/* Category Grid */}
-      <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 lg:gap-24 pb-32">
-        {categories.map((cat, idx) => (
-          <CategoryCard key={cat.title} cat={cat} idx={idx} />
+      <section className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 pb-32 items-end">
+        {homepageItems.map((cat, idx) => (
+          <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
       </section>
     </div>
