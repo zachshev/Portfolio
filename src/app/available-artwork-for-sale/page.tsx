@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const availableArtworks = [
   {
@@ -45,17 +44,8 @@ const availableArtworks = [
 ];
 
 function ArtworkRow({ art, idx }: { art: any; idx: number }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
-
   return (
     <motion.div
-      ref={ref}
       initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -64,8 +54,8 @@ function ArtworkRow({ art, idx }: { art: any; idx: number }) {
         idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
       } gap-8 md:gap-16 lg:gap-24 items-center group`}
     >
-      <div className={`w-full md:w-1/2 relative overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm bg-[#D9D9D4]/20 flex justify-center items-center`}>
-        <motion.div style={{ y }} className="w-full scale-[1.15]">
+      <div className={`w-full md:w-1/2 relative shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm bg-[#D9D9D4]/20 flex justify-center items-center`}>
+        <div className="w-full">
           <Image
             src={art.image}
             alt={art.title}
@@ -73,9 +63,9 @@ function ArtworkRow({ art, idx }: { art: any; idx: number }) {
             height={0}
             sizes="(max-width: 768px) 100vw, 50vw"
             style={{ width: '100%', height: 'auto' }}
-            className="transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+            className="transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
-        </motion.div>
+        </div>
         {/* Subtle Overlay */}
         <div className="absolute inset-0 bg-[#2a2a2a]/0 transition-all duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[#2a2a2a]/10 pointer-events-none border border-white/0 group-hover:border-white/10" />
       </div>
