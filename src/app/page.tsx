@@ -9,13 +9,13 @@ const homepageItems = [
     title: "Portrait Paintings",
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
-    className: "md:col-span-7",
+    className: "md:col-span-8",
   },
   {
     title: "Pastel Drawings",
     href: "/artwork?category=Portrait%20Drawing",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
-    className: "md:col-span-5",
+    className: "md:col-span-4",
   },
   {
     title: "Oil Sketches",
@@ -97,7 +97,7 @@ export default function Home() {
       </section>
 
       {/* Category Grid */}
-      <section className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 pb-32 items-end">
+      <section className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 pb-32 items-start">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
