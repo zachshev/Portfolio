@@ -10,42 +10,48 @@ const homepageItems = [
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
     className: "md:col-span-8",
-    imageWidth: "max-w-[760px]",
+    imageWidth: "md:max-w-[760px]",
+    imageHeight: "h-[280px] sm:h-[360px] md:h-[520px]",
   },
   {
     title: "Pastel Drawings",
     href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
     className: "md:col-span-4 md:-ml-10 lg:-ml-16",
-    imageWidth: "max-w-[420px]",
+    imageWidth: "md:max-w-[420px]",
+    imageHeight: "h-[420px] sm:h-[500px] md:h-[520px]",
   },
   {
     title: "Oil Sketches",
     href: "/artwork?category=Portrait%20Oil%20Sketch",
     image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG",
     className: "md:col-span-4",
-    imageWidth: "max-w-[420px]",
+    imageWidth: "md:max-w-[420px]",
+    imageHeight: "h-[420px] sm:h-[500px] md:h-[520px]",
   },
   {
     title: "Graphite Portraits",
     href: "/artwork?category=Graphite%20Drawings",
     image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
     className: "md:col-span-4",
-    imageWidth: "max-w-[420px]",
+    imageWidth: "md:max-w-[420px]",
+    imageHeight: "h-[420px] sm:h-[500px] md:h-[520px]",
   },
   {
     title: "Charcoal Studies",
     href: "/artwork?category=Charcoal%20Studies",
     image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
     className: "md:col-span-4",
-    imageWidth: "max-w-[420px]",
+    imageWidth: "md:max-w-[420px]",
+    imageHeight: "h-[420px] sm:h-[500px] md:h-[520px]",
   },
   {
     title: "Pet Portraits",
     href: "/artwork?category=Pet%20Portrait",
     image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
     className: "md:col-span-4 md:col-start-5",
-    imageWidth: "max-w-[420px]",
+    imageWidth: "md:max-w-[420px]",
+    imageHeight: "h-[420px] sm:h-[500px] md:h-[520px]",
   },
 ];
 
@@ -54,7 +60,9 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
     <Link href={cat.href} className={`block w-full ${cat.className}`}>
       <div className="w-full flex flex-col items-center">
         <div className={`w-full ${cat.imageWidth}`}>
-          <div className="relative w-full h-[520px] mb-6 group cursor-pointer overflow-hidden">
+          <div
+            className={`relative w-full ${cat.imageHeight} mb-4 md:mb-6 group cursor-pointer overflow-hidden`}
+          >
             <Image
               src={cat.image}
               alt={cat.title}
@@ -64,12 +72,12 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
             />
           </div>
 
-          <div className="flex justify-between items-center w-[88%] mx-auto">
-            <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
+          <div className="flex justify-between items-start md:items-center w-full md:w-[88%] md:mx-auto gap-4">
+            <h3 className="font-serif text-2xl md:text-xl leading-tight tracking-[0.08em] text-[#2a2a2a]">
               {cat.title}
             </h3>
 
-            <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap text-right">
+            <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap text-right pt-2 md:pt-0">
               View Collection
             </span>
           </div>
@@ -82,13 +90,13 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
 export default function Home() {
   return (
     <div className="w-full">
-      <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-24 relative">
+      <section className="min-h-[42vh] md:min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-20 pb-14 md:py-24 relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-widest text-[#2a2a2a] mb-8 uppercase drop-shadow-sm">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-widest text-[#2a2a2a] mb-6 md:mb-8 uppercase drop-shadow-sm">
             Zach Shev
           </h1>
         </motion.div>
@@ -98,14 +106,14 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="font-sans text-lg md:text-xl text-[#2a2a2a]/70 tracking-widest uppercase max-w-2xl"
+            className="font-sans text-sm md:text-xl text-[#2a2a2a]/70 tracking-widest uppercase max-w-2xl leading-relaxed"
           >
             Heirloom Portraiture designed to last for generations.
           </motion.p>
         </motion.div>
       </section>
 
-      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-x-16 lg:gap-x-24 pb-32 items-start">
+      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-24 md:gap-x-16 lg:gap-x-24 pb-24 md:pb-32 items-start">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
