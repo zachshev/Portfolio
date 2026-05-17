@@ -15,7 +15,7 @@ const homepageItems = [
     title: "Pastel Drawings",
     href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
-    className: "md:col-span-4",
+    className: "md:col-span-4 md:-ml-10 lg:-ml-16",
   },
   {
     title: "Oil Sketches",
@@ -46,7 +46,7 @@ const homepageItems = [
 function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
   return (
     <Link href={cat.href} className={`block w-full ${cat.className}`}>
-      <div className="w-full">
+      <div className="w-full flex flex-col items-center">
         <div className="relative w-full h-[520px] mb-6 group cursor-pointer overflow-hidden">
           <Image
             src={cat.image}
@@ -97,7 +97,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="w-full max-w-[1500px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-x-20 lg:gap-x-28 pb-32 items-start">
+      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-x-16 lg:gap-x-24 pb-32 items-start">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
