@@ -58,7 +58,7 @@ const subcategories = [
   "Portrait Oil Sketch",
   "Pastel Drawings",
   "Graphite Drawings",
-  "Charcoal Studies"
+  "Charcoal Studies",
   "Pet Portrait",
   "Artworks For Sale"
 ];
