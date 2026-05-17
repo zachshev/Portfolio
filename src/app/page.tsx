@@ -1,131 +1,108 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
-export default function ContactPage() {
+const homepageItems = [
+  {
+    title: "Portrait Paintings",
+    href: "/artwork?category=Portrait%20Paintings",
+    image: "/Portrait Paintings/The Greenwalds.jpg",
+    className: "md:col-span-8",
+  },
+  {
+    title: "Pastel Drawings",
+    href: "/artwork?category=Pastel%20Drawings",
+    image: "/Portrait drawing/Pastel Drawing Camille.JPG",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Oil Sketches",
+    href: "/artwork?category=Portrait%20Oil%20Sketch",
+    image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Graphite Portraits",
+    href: "/artwork?category=Graphite%20Drawings",
+    image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Charcoal Studies",
+    href: "/artwork?category=Charcoal%20Studies",
+    image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
+    className: "md:col-span-4",
+  },
+  {
+    title: "Pet Portraits",
+    href: "/artwork?category=Pet%20Portrait",
+    image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
+    className: "md:col-span-4 md:col-start-5",
+  },
+];
+
+function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
   return (
-    <div className="container mx-auto px-6 md:px-12 py-12 md:py-24 max-w-4xl">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="mb-16 md:mb-24 text-center"
-      >
-        <h1 className="font-serif text-4xl md:text-5xl text-[#2a2a2a] tracking-widest uppercase mb-6">
-          Contact
-        </h1>
+    <Link href={cat.href} className={`block ${cat.className}`}>
+      <div className="w-fit max-w-full mx-auto">
+        <div className="mb-6 group cursor-pointer overflow-hidden">
+          <Image
+            src={cat.image}
+            alt={cat.title}
+            width={1200}
+            height={900}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="h-[520px] w-auto max-w-full object-contain transition-transform duration-1000"
+          />
+        </div>
 
-        <p className="font-sans text-sm md:text-base tracking-widest uppercase text-[#2a2a2a]/60 mb-2">
-          zach@zachshev.com
-        </p>
+        <div className="flex justify-between items-center gap-12 w-full">
+          <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
+            {cat.title}
+          </h3>
 
-        <p className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/40 italic">
-          All inquiries and contacts will be directed to Zach directly.
-        </p>
-      </motion.div>
+          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap">
+            View Collection
+          </span>
+        </div>
+      </div>
+    </Link>
+  );
+}
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-2xl mx-auto"
-      >
-        <form
-          className="space-y-12"
-          onSubmit={async (e) => {
-            e.preventDefault();
-
-            const form = e.currentTarget;
-            const formData = new FormData(form);
-
-            const data = {
-              name: formData.get("name"),
-              email: formData.get("email"),
-              subject: formData.get("subject"),
-              message: formData.get("message"),
-              recipient: "zach@zachshev.com",
-            };
-
-            const response = await fetch("/api/contact", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
-            });
-
-            if (response.ok) {
-              alert("Message sent successfully.");
-              form.reset();
-            } else {
-              alert("Something went wrong.");
-            }
-          }}
+export default function Home() {
+  return (
+    <div className="container mx-auto px-6 md:px-12 flex flex-col items-center">
+      <section className="min-h-[60vh] flex flex-col items-center justify-center text-center py-24 relative">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="space-y-2 relative group">
-              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
-                Name
-              </label>
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-widest text-[#2a2a2a] mb-8 uppercase drop-shadow-sm">
+            Zach Shev
+          </h1>
+        </motion.div>
 
-              <input
-                name="name"
-                type="text"
-                required
-                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a]"
-              />
-            </div>
+        <motion.div className="overflow-hidden">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="font-sans text-lg md:text-xl text-[#2a2a2a]/70 tracking-widest uppercase max-w-2xl"
+          >
+            Heirloom Portraiture designed to last for generations.
+          </motion.p>
+        </motion.div>
+      </section>
 
-            <div className="space-y-2 relative group">
-              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
-                Email
-              </label>
-
-              <input
-                name="email"
-                type="email"
-                required
-                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a]"
-              />
-            </div>
-          </div>
-
-          <div className="space-y-2 relative group">
-            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
-              Subject
-            </label>
-
-            <input
-              name="subject"
-              type="text"
-              required
-              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a]"
-            />
-          </div>
-
-          <div className="space-y-2 relative group">
-            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
-              Message
-            </label>
-
-            <textarea
-              name="message"
-              rows={6}
-              required
-              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a] resize-none"
-            />
-          </div>
-
-          <div className="pt-8 text-center">
-            <button
-              type="submit"
-              className="bg-[#465761] border border-[#465761] text-white px-16 py-4 font-sans text-sm tracking-widest uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1 w-full md:w-auto"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
-      </motion.div>
+      <section className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 pb-32 items-start">
+        {homepageItems.map((cat, idx) => (
+          <CategoryCard key={cat.title + idx} cat={cat} />
+        ))}
+      </section>
     </div>
   );
 }
