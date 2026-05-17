@@ -47,14 +47,14 @@ function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
   return (
     <Link href={cat.href} className={`block ${cat.className}`}>
       <div className="flex flex-col">
-        <div className="relative w-full mb-6 group cursor-pointer bg-[#D9D9D4]/20">
+        <div className="relative w-full h-[520px] mb-6 group cursor-pointer bg-[#D9DD4]/20 overflow-hidden">
           <Image
             src={cat.image}
             alt={cat.title}
             width={0}
             height={0}
             sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ width: '100%', height: 'auto' }}
+            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
             className="transition-transform duration-1000"
           />
         </div>
