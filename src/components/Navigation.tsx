@@ -56,31 +56,34 @@ export default function Navigation() {
           : "py-5 md:py-6 border-b border-transparent"
       }`}
     >
-      <div className="mx-auto w-full max-w-[1500px] px-6 md:px-10 lg:px-12 flex items-center justify-between gap-8">
-        <div className="w-6 md:hidden" />
+      <div className="mx-auto w-full max-w-[1520px] px-6 md:px-8 lg:px-10 xl:px-12 flex items-center justify-between gap-6 lg:gap-8">
+        <div className="w-8 md:hidden" />
 
         <Link
           href="/"
-          className="shrink-0 hover:opacity-70 transition-opacity flex items-center justify-center"
+          className="shrink-0 hover:opacity-80 transition-opacity flex items-center justify-center md:justify-start"
+          aria-label="Zach Shev Home"
         >
           <Image
             src="/logo.png"
             alt="Zach Shev Logo"
-            width={400}
-            height={266}
-            className={`transition-all duration-700 w-auto object-contain brightness-0 invert ${
-              isScrolled ? "h-14 md:h-14 lg:h-16" : "h-16 md:h-16 lg:h-20"
+            width={900}
+            height={600}
+            className={`w-auto object-contain brightness-0 invert transition-all duration-700 ${
+              isScrolled
+                ? "h-20 sm:h-24 md:h-20 lg:h-24 xl:h-28"
+                : "h-24 sm:h-28 md:h-24 lg:h-28 xl:h-32"
             }`}
             priority
           />
         </Link>
 
-        <nav className="hidden md:flex items-center justify-end gap-5 lg:gap-7 xl:gap-9 min-w-0">
+        <nav className="hidden md:flex items-center justify-end gap-4 lg:gap-6 xl:gap-7 min-w-0">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`font-sans text-[11px] lg:text-xs xl:text-sm tracking-[0.16em] lg:tracking-[0.18em] xl:tracking-[0.2em] uppercase whitespace-nowrap leading-none transition-colors duration-300 hover:text-white ${
+              className={`font-sans text-[10px] lg:text-[11px] xl:text-xs tracking-[0.14em] lg:tracking-[0.16em] xl:tracking-[0.18em] uppercase whitespace-nowrap leading-none transition-colors duration-300 hover:text-white ${
                 pathname === link.href ? "text-white" : "text-white/70"
               }`}
             >
@@ -90,11 +93,11 @@ export default function Navigation() {
         </nav>
 
         <button
-          className="md:hidden text-white/90 hover:text-white transition-colors w-6 flex justify-end"
+          className="md:hidden text-white/90 hover:text-white transition-colors w-8 flex justify-end"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open navigation menu"
         >
-          <Menu className="w-6 h-6" />
+          <Menu className="w-8 h-8" />
         </button>
       </div>
 
@@ -116,6 +119,15 @@ export default function Navigation() {
             </button>
 
             <div className="flex flex-col items-center justify-center min-h-[100dvh] py-24 px-6">
+              <Image
+                src="/logo.png"
+                alt="Zach Shev Logo"
+                width={900}
+                height={600}
+                className="w-auto h-32 object-contain brightness-0 invert mb-16"
+                priority
+              />
+
               <nav className="flex flex-col items-center justify-center space-y-8 w-full">
                 {navLinks.map((link) => (
                   <Link
