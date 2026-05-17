@@ -33,26 +33,37 @@ export default function AboutPage() {
             Zach Shev
           </h1>
 
-          <div className="font-sans text-[#2a2a2a]/80 leading-relaxed text-lg font-light space-y-6 mb-12">
+          <div className="font-sans text-[#2a2a2a]/80 leading-relaxed text-lg font-light space-y-8 mb-12">
+            
             <p>
-              Zach Shev is a contemporary fine artist specializing in classical
-              portraiture. Drawing inspiration from the grand masters, his work
-              seeks to capture the timeless essence and profound depth of the
-              human spirit.
+              Growing up in New York, Zach Shevlin developed an early fascination
+              with the tradition of classical portraiture and the ability of
+              painting to preserve both likeness and presence. After relocating
+              to San Diego to study at the Watts Atelier of the Arts, he
+              dedicated himself to the rigorous study of drawing and oil
+              painting, with an emphasis on craftsmanship, structure, and
+              timeless realism. Alongside his own studio practice, Zach teaches
+              at Watts Atelier, where he continues to deepen his understanding
+              of the human form and the traditions of representational art.
             </p>
 
             <p>
-              Trained in the rigorous traditions of classical realism, Zach's
-              approach combines meticulous observation with an emotive,
-              painterly touch. Each portrait is treated as an heirloom—a quiet,
-              lasting testament to the individual's character and presence.
+              Zach approaches portrait painting as more than simply creating an
+              image. His work aims not only to capture a strong likeness, but
+              also the character, atmosphere, and emotional presence that make
+              each person unique. Influenced by the great portrait painters of
+              the past while grounded in a contemporary sensibility, he strives
+              to create paintings that feel personal, enduring, and deeply
+              human. Above all, he hopes to create work that can be lived with,
+              cherished,              and passed down through generations as meaningful family heirlooms.
             </p>
 
             <p>
-              His studio practice is defined by a dedication to craftsmanship,
-              utilizing premium archival materials and traditional layering
-              techniques that imbue his canvases with luminosity and life.
+              Zach currently lives and works in San Diego, California, where he
+              accepts a limited number of portrait commissions for individuals,
+              families, and collectors.
             </p>
+
           </div>
 
           <div className="flex flex-wrap gap-6">
