@@ -14,9 +14,11 @@ export default function ContactPage() {
         <h1 className="font-serif text-4xl md:text-5xl text-[#2a2a2a] tracking-widest uppercase mb-6">
           Contact
         </h1>
+
         <p className="font-sans text-sm md:text-base tracking-widest uppercase text-[#2a2a2a]/60 mb-2">
           zach@zachshev.com
         </p>
+
         <p className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/40 italic">
           All inquiries and contacts will be directed to Zach directly.
         </p>
@@ -28,26 +30,90 @@ export default function ContactPage() {
         transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-2xl mx-auto"
       >
-        <form className="space-y-12" onSubmit={(e) => e.preventDefault()}>
+        <form
+          className="space-y-12"
+          onSubmit={async (e) => {
+            e.preventDefault();
+
+            const form = e.currentTarget;
+            const formData = new FormData(form);
+
+            const data = {
+              name: formData.get("name"),
+              email: formData.get("email"),
+              subject: formData.get("subject"),
+              message: formData.get("message"),
+              recipient: "zach@zachshev.com",
+            };
+
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+              alert("Message sent successfully.");
+              form.reset();
+            } else {
+              alert("Something went wrong.");
+            }
+          }}
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="space-y-2 relative group">
-              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">Name</label>
-              <input type="text" className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]" />
+              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+                Name
+              </label>
+
+              <input
+                name="name"
+                type="text"
+                required
+                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]"
+              />
             </div>
+
             <div className="space-y-2 relative group">
-              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">Email</label>
-              <input type="email" className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]" />
+              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+                Email
+              </label>
+
+              <input
+                name="email"
+                type="email"
+                required
+                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]"
+              />
             </div>
           </div>
 
           <div className="space-y-2 relative group">
-            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">Subject</label>
-            <input type="text" className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]" />
+            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+              Subject
+            </label>
+
+            <input
+              name="subject"
+              type="text"
+              required
+              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]"
+            />
           </div>
 
           <div className="space-y-2 relative group">
-            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">Message</label>
-            <textarea rows={6} className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a] resize-none"></textarea>
+            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+              Message
+            </label>
+
+            <textarea
+              name="message"
+              rows={6}
+              required
+              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a] resize-none"
+            />
           </div>
 
           <div className="pt-8 text-center">
