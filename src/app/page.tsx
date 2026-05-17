@@ -105,11 +105,34 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            transition={{
+              duration: 1.2,
+              delay: 0.4,
+              ease: [0.16, 1, 0.3, 1],
+            }}
             className="font-sans text-sm md:text-xl text-[#2a2a2a]/70 tracking-widest uppercase max-w-2xl leading-relaxed"
           >
             Heirloom Portraiture designed to last for generations.
           </motion.p>
+        </motion.div>
+
+        {/* Commission Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 1.1,
+            delay: 0.75,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="mt-10 md:mt-12"
+        >
+          <Link
+            href="/commission-process"
+            className="inline-flex items-center justify-center bg-[#465761] border border-[#465761] text-white px-8 md:px-12 py-4 md:py-5 font-sans text-[10px] md:text-xs tracking-[0.22em] md:tracking-[0.3em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
+          >
+            Commission a Portrait
+          </Link>
         </motion.div>
       </section>
 
