@@ -64,7 +64,7 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
             />
           </div>
 
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-[88%] mx-auto">
             <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
               {cat.title}
             </h3>
