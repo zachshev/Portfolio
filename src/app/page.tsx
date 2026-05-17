@@ -13,7 +13,7 @@ const homepageItems = [
   },
   {
     title: "Pastel Drawings",
-    href: "/artwork?category=Portrait%20Drawing",
+    href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
     className: "md:col-span-4",
   },
@@ -25,13 +25,13 @@ const homepageItems = [
   },
   {
     title: "Graphite Portraits",
-    href: "/artwork?category=Portrait%20Drawing",
+    href: "/artwork?category=Graphite%20Drawings",
     image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
     className: "md:col-span-4",
   },
   {
     title: "Charcoal Studies",
-    href: "/artwork?category=Portrait%20Drawing",
+    href: "/artwork?category=Charcoal%20Studies",
     image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
     className: "md:col-span-4",
   },
@@ -47,19 +47,23 @@ function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
   return (
     <Link href={cat.href} className={`block ${cat.className}`}>
       <div className="flex flex-col">
-        <div className="relative w-full h-[520px] mb-6 group cursor-pointer bg-[#D9DD4]/20 overflow-hidden">
+        <div className="relative w-full h-[520px] mb-6 group cursor-pointer bg-[#D9DDD4]/20 overflow-hidden">
           <Image
             src={cat.image}
             alt={cat.title}
-            width={0}
-            height={0}
+            width={1200}
+            height={900}
             sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+            style={{ width: "100%", height: "100%", objectFit: "contain" }}
             className="transition-transform duration-1000"
           />
         </div>
-        <div className="flex justify-between items-center px-2">
-          <h3 className="font-serif text-xl tracking-wider text-[#2a2a2a]">{cat.title}</h3>
+
+        <div className="flex justify-between items-center px-0">
+          <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
+            {cat.title}
+          </h3>
+
           <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50">
             View Collection
           </span>
@@ -72,7 +76,6 @@ function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
 export default function Home() {
   return (
     <div className="container mx-auto px-6 md:px-12 flex flex-col items-center">
-      {/* Hero Section */}
       <section className="min-h-[60vh] flex flex-col items-center justify-center text-center py-24 relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
@@ -83,7 +86,7 @@ export default function Home() {
             Zach Shev
           </h1>
         </motion.div>
-        
+
         <motion.div className="overflow-hidden">
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -91,12 +94,11 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="font-sans text-lg md:text-xl text-[#2a2a2a]/70 tracking-widest uppercase max-w-2xl"
           >
-            Heirloom Portraiture designed to last for generations.
+            Specialized Heirloom Portraiture designed to last for generations.
           </motion.p>
         </motion.div>
       </section>
 
-      {/* Category Grid */}
       <section className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 pb-32 items-start">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
