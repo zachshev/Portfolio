@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Suspense, useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
 
 const artworks = [
   // Portrait Paintings
@@ -12,7 +10,7 @@ const artworks = [
   { id: 32, title: "Sara", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Sara.jpg" },
   { id: 33, title: "Self Portrait", category: "Portrait Paintings", image: "/Portrait Paintings/Self Portrait.jpg" },
 
-  // Oil Sketches
+ // Oil Sketches
   { id: 14, title: "Chuck", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Sketch Oil Goatee.jpg" },
   { id: 9, title: "Muse", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Muse_.jpg" },
   { id: 11, title: "Rebecca", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG" },
@@ -42,7 +40,7 @@ const artworks = [
   { id: 15, title: "Gypsy Girl", category: "Charcoal Studies", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg" },
 
   // Pet Portraits
-  { id: 26, title: "Benny", category: "Pet Portrait", image: "/Pet portrait/Pet Portrait Oil Benny.jpg" },
+  { id: 26, title: "Benny", category: "Pet Portraits", image: "/Pet portrait/Pet Portrait Oil Benny.jpg" },
 
   // Artworks For Sale
   { id: 27, title: "Alaina", category: "Artworks For Sale", price: "$200", image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG" },
@@ -50,6 +48,9 @@ const artworks = [
   { id: 29, title: "Rebecca", category: "Artworks For Sale", price: "$300", image: "/Artworks For Sale/Price (300) - Portrait Oil Sketch Rebecca (size 11_x14_).JPG" },
   { id: 30, title: "Chuck", category: "Artworks For Sale", price: "$500", image: "/Artworks For Sale/Price (500) Portrait Sketch Oil Goatee (Size 18_x24_).JPG" },
 ];
+
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 
 const subcategories = [
   "All",
@@ -59,17 +60,13 @@ const subcategories = [
   "Graphite Drawings",
   "Charcoal Studies",
   "Pet Portrait",
-  "Artworks For Sale",
+  "Artworks For Sale"
 ];
 
 function ArtworkGallery() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get("category");
-
-  const initialCategory =
-    categoryParam && subcategories.includes(categoryParam)
-      ? categoryParam
-      : "All";
+  const initialCategory = (categoryParam && subcategories.includes(categoryParam)) ? categoryParam : "All";
 
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
@@ -90,29 +87,28 @@ function ArtworkGallery() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        className="mb-10 md:mb-14"
+        className="mb-12 md:mb-16"
       >
         <h1 className="font-serif text-4xl md:text-5xl text-[#2a2a2a] tracking-widest uppercase mb-4">
           Selected Works
         </h1>
-
         <p className="font-sans text-sm tracking-widest uppercase text-[#2a2a2a]/60">
           A curated exhibition of recent portraiture.
         </p>
       </motion.div>
 
-      <motion.div
+      {/* Subcategory Filter */}
+      <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-wrap gap-x-5 gap-y-3 md:gap-x-7 md:gap-y-4 mb-12 md:mb-16"
+        className="flex flex-wrap gap-4 md:gap-8 mb-16 md:mb-24"
       >
         {subcategories.map((cat) => (
           <button
             key={cat}
-            type="button"
             onClick={() => setActiveCategory(cat)}
-            className={`font-sans text-[11px] md:text-xs tracking-widest uppercase transition-colors duration-500 pb-1 border-b ${
+            className={`font-sans text-xs md:text-sm tracking-widest uppercase transition-colors duration-500 pb-1 border-b ${
               activeCategory === cat
                 ? "text-[#2a2a2a] border-[#2a2a2a]"
                 : "text-[#2a2a2a]/40 border-transparent hover:text-[#2a2a2a]/70"
@@ -123,62 +119,49 @@ function ArtworkGallery() {
         ))}
       </motion.div>
 
-      <div className="columns-1 md:columns-2 gap-10 md:gap-16 [column-fill:_balance]">
-        {filteredArtworks.map((art) => (
-          <motion.div
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+        {filteredArtworks.map((art, idx) => (
+          <div
             key={`${activeCategory}-${art.id}`}
-            initial={{ opacity: 0, y: 28 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="break-inside-avoid mb-14 md:mb-20"
+            className={`flex flex-col ${idx % 2 !== 0 ? "md:mt-24" : ""}`}
           >
-            <div className="relative w-full overflow-hidden mb-5 group cursor-pointer bg-[#D9D9D4]/20">
+            <div className="relative w-full overflow-hidden mb-6 group cursor-pointer bg-[#D9D9D4]/20">
               <Image
                 src={art.image}
                 alt={art.title}
-                width={1200}
-                height={1600}
+                width={0}
+                height={0}
                 sizes="(max-width: 768px) 100vw, 50vw"
-                style={{ width: "100%", height: "auto" }}
-                className="transition-transform duration-1000 group-hover:scale-[1.025]"
+                style={{ width: '100%', height: 'auto' }}
+                className="transition-transform duration-1000 group-hover:scale-105"
               />
             </div>
-
-            <div className="flex justify-between items-start gap-6 px-1">
-              <h3 className="font-serif text-base md:text-lg tracking-wider text-[#2a2a2a]">
-                {art.title}
-              </h3>
-
-              <div className="flex flex-col items-end text-right shrink-0">
-                <span className="font-sans text-[10px] md:text-[11px] tracking-widest uppercase text-[#2a2a2a]/50">
+            <div className="flex justify-between items-center px-2">
+              <h3 className="font-serif text-xl tracking-wider text-[#2a2a2a]">{art.title}</h3>
+              <div className="flex flex-col items-end">
+                <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50">
                   {art.category}
                 </span>
-
-                {"price" in art && art.price && (
-                  <span className="font-sans text-xs tracking-widest text-[#2a2a2a] mt-1">
+                {art.price && (
+                  <span className="font-sans text-sm tracking-widest text-[#2a2a2a] mt-1">
                     {art.price}
                   </span>
                 )}
               </div>
             </div>
-
-            {"price" in art && art.price && (
-              <div className="px-1 mt-4">
-                <a
-                  href="/contact"
-                  className="inline-block bg-[#465761] border border-[#465761] text-white px-5 py-3 text-[10px] uppercase tracking-widest hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-300"
-                >
+            {art.price && (
+              <div className="px-2 mt-4">
+                <a href="/contact" className="inline-block border border-[#2a2a2a] text-[#2a2a2a] px-4 py-2 text-xs uppercase tracking-widest hover:bg-[#2a2a2a] hover:text-[#f8f8f8] transition-colors duration-300">
                   Inquire to Purchase
                 </a>
               </div>
             )}
-          </motion.div>
+          </div>
         ))}
       </div>
-
+      
       {filteredArtworks.length === 0 && (
-        <motion.div
+        <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="w-full text-center py-24"
@@ -194,13 +177,7 @@ function ArtworkGallery() {
 
 export default function ArtworkPage() {
   return (
-    <Suspense
-      fallback={
-        <div className="container mx-auto px-6 py-24 text-center font-sans tracking-widest uppercase text-sm">
-          Loading gallery...
-        </div>
-      }
-    >
+    <Suspense fallback={<div className="container mx-auto px-6 py-24 text-center font-sans tracking-widest uppercase text-sm">Loading gallery...</div>}>
       <ArtworkGallery />
     </Suspense>
   );
