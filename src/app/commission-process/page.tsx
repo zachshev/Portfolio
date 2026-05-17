@@ -10,28 +10,15 @@ export default function CommissionPortraitPage() {
           <p className="text-sm leading-8 tracking-wide text-[#2a2a2a]/70 max-w-2xl mx-auto">
             Please use this form if you are interested in commissioning a portrait
             by Zach Shev. This helps begin the conversation with the necessary
-            details regarding reference material, timeline, scale, and overall
+            details regarding timeline, scale, reference material, and overall
             vision for the painting.
           </p>
         </div>
 
-        <form className="space-y-20">
-          <div>
-            <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60 leading-6">
-              Do you have a suitable photo reference ready or would we arrange
-              to shoot some together? Or, perhaps you want the portrait painted
-              from life? If so, where would you want to meet and when?
-            </label>
-
-            <textarea
-              rows={5}
-              className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
-            />
-          </div>
-
+        <form className="space-y-24">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60">
+              <label className="block text-sm tracking-wide mb-6 text-[#2a2a2a]/55">
                 Name
               </label>
 
@@ -42,8 +29,8 @@ export default function CommissionPortraitPage() {
             </div>
 
             <div>
-              <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60">
-                Email
+              <label className="block text-sm tracking-wide mb-6 text-[#2a2a2a]/55">
+                Email Address
               </label>
 
               <input
@@ -54,7 +41,7 @@ export default function CommissionPortraitPage() {
           </div>
 
           <div>
-            <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60">
+            <label className="block text-sm tracking-wide mb-6 text-[#2a2a2a]/55">
               Phone Number
             </label>
 
@@ -65,20 +52,43 @@ export default function CommissionPortraitPage() {
           </div>
 
           <div>
-            <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60 leading-6">
-              What is your vision for the painting? What do you want the portrait
-              to express and what elements would you want included?
+            <label className="block text-sm tracking-wide mb-8 text-[#2a2a2a]/55 leading-8">
+              Tell me about the portrait you are considering.
             </label>
 
             <textarea
-              rows={8}
+              rows={6}
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
             />
           </div>
 
           <div>
-            <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60 leading-6">
-              What size are you envisioning for the painting?
+            <label className="block text-sm tracking-wide mb-8 text-[#2a2a2a]/55 leading-8">
+              What is your vision for the painting?
+            </label>
+
+            <textarea
+              rows={6}
+              className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm tracking-wide mb-8 text-[#2a2a2a]/55 leading-8">
+              Do you have a suitable photo reference ready or would we arrange
+              to shoot some together? If you'd like to do a photoshoot, which I
+              recommend, when are you available?
+            </label>
+
+            <textarea
+              rows={6}
+              className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm tracking-wide mb-6 text-[#2a2a2a]/55">
+              Approximate size, if known
             </label>
 
             <input
@@ -88,8 +98,8 @@ export default function CommissionPortraitPage() {
           </div>
 
           <div>
-            <label className="block text-xs uppercase tracking-[0.25em] mb-6 text-[#2a2a2a]/60 leading-6">
-              Is this painting connected to a specific event or deadline?
+            <label className="block text-sm tracking-wide mb-6 text-[#2a2a2a]/55">
+              Timeline or event deadline, if applicable
             </label>
 
             <input
@@ -98,12 +108,12 @@ export default function CommissionPortraitPage() {
             />
           </div>
 
-          <div className="pt-6">
+          <div className="pt-8">
             <button
               type="submit"
-              className="text-xs uppercase tracking-[0.3em] border border-[#2a2a2a]/20 px-12 py-4 hover:bg-[#2a2a2a] hover:text-[#D9D9D4] transition-colors duration-500"
+              className="border border-[#2a2a2a]/25 px-14 py-5 text-xs tracking-[0.35em] uppercase hover:bg-[#2a2a2a] hover:text-[#D9D9D4] transition-all duration-500"
             >
-              Submit Inquiry
+              Submit
             </button>
           </div>
         </form>
