@@ -13,6 +13,7 @@ const navLinks = [
   { name: "Artwork", href: "/artwork" },
   { name: "Available Artwork", href: "/available-artwork-for-sale" },
   { name: "Commission Process", href: "/commission-process" },
+  { name: "Commission a Portrait", href: "/commission-a-portrait" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
