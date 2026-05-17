@@ -1,3 +1,5 @@
+"use client";
+
 export default function CommissionPortraitPage() {
   return (
     <main className="min-h-screen bg-[#D9D9D4] text-[#2a2a2a] px-6 py-32">
@@ -15,7 +17,53 @@ export default function CommissionPortraitPage() {
           </p>
         </div>
 
-        <form className="space-y-24">
+        <form
+          className="space-y-24"
+          onSubmit={async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(e.currentTarget);
+
+            const data = {
+              name: formData.get("name"),
+              email: formData.get("email"),
+              subject: "Commission Portrait Inquiry",
+              message: `
+Phone Number:
+${formData.get("phone")}
+
+Portrait Description:
+${formData.get("portraitDescription")}
+
+Vision For The Painting:
+${formData.get("vision")}
+
+Reference / Photoshoot Information:
+${formData.get("referenceInfo")}
+
+Approximate Size:
+${formData.get("size")}
+
+Timeline / Deadline:
+${formData.get("timeline")}
+              `,
+            };
+
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+              alert("Inquiry submitted successfully.");
+            } else {
+              alert("Something went wrong.");
+            }
+          }}
+        >
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <label className="block text-sm tracking-wide mb-6 text-[#2a2a2a]/55">
@@ -24,6 +72,7 @@ export default function CommissionPortraitPage() {
 
               <input
                 type="text"
+                name="name"
                 className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
               />
             </div>
@@ -35,6 +84,7 @@ export default function CommissionPortraitPage() {
 
               <input
                 type="email"
+                name="email"
                 className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
               />
             </div>
@@ -47,6 +97,7 @@ export default function CommissionPortraitPage() {
 
             <input
               type="text"
+              name="phone"
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
             />
           </div>
@@ -58,6 +109,7 @@ export default function CommissionPortraitPage() {
 
             <textarea
               rows={6}
+              name="portraitDescription"
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
             />
           </div>
@@ -69,6 +121,7 @@ export default function CommissionPortraitPage() {
 
             <textarea
               rows={6}
+              name="vision"
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
             />
           </div>
@@ -82,6 +135,7 @@ export default function CommissionPortraitPage() {
 
             <textarea
               rows={6}
+              name="referenceInfo"
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
             />
           </div>
@@ -93,6 +147,7 @@ export default function CommissionPortraitPage() {
 
             <input
               type="text"
+              name="size"
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
             />
           </div>
@@ -104,6 +159,7 @@ export default function CommissionPortraitPage() {
 
             <input
               type="text"
+              name="timeline"
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
             />
           </div>
