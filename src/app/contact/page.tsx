@@ -64,7 +64,7 @@ export default function ContactPage() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="space-y-2 relative group">
-              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
                 Name
               </label>
 
@@ -72,12 +72,12 @@ export default function ContactPage() {
                 name="name"
                 type="text"
                 required
-                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]"
+                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a]"
               />
             </div>
 
             <div className="space-y-2 relative group">
-              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+              <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
                 Email
               </label>
 
@@ -85,13 +85,13 @@ export default function ContactPage() {
                 name="email"
                 type="email"
                 required
-                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]"
+                className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a]"
               />
             </div>
           </div>
 
           <div className="space-y-2 relative group">
-            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
               Subject
             </label>
 
@@ -99,12 +99,12 @@ export default function ContactPage() {
               name="subject"
               type="text"
               required
-              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a]"
+              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a]"
             />
           </div>
 
           <div className="space-y-2 relative group">
-            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[var(--accent)]">
+            <label className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/60 transition-colors group-focus-within:text-[#465761]">
               Message
             </label>
 
@@ -112,14 +112,14 @@ export default function ContactPage() {
               name="message"
               rows={6}
               required
-              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[var(--accent)] transition-colors font-serif text-lg text-[#2a2a2a] resize-none"
+              className="w-full bg-transparent border-b border-[#2a2a2a]/20 py-2 outline-none focus:border-[#465761] transition-colors font-serif text-lg text-[#2a2a2a] resize-none"
             />
           </div>
 
           <div className="pt-8 text-center">
             <button
               type="submit"
-              className="inline-block border border-[var(--accent)] text-[#2a2a2a] px-16 py-4 font-sans text-sm tracking-widest uppercase hover:bg-[var(--accent)] hover:text-white transition-colors duration-500 w-full md:w-auto"
+              className="bg-[#465761] border border-[#465761] text-white px-16 py-4 font-sans text-sm tracking-widest uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1 w-full md:w-auto"
             >
               Send Message
             </button>
