@@ -57,12 +57,12 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
           />
         </div>
 
-        <div className="flex justify-between items-center gap-8 w-full">
+        <div className="flex justify-between items-center w-full px-1">
           <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
             {cat.title}
           </h3>
 
-          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap">
+          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap text-right">
             View Collection
           </span>
         </div>
