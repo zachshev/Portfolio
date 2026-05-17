@@ -27,20 +27,20 @@ const artworks = [
   { id: 13, title: "Sherman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sherman.PNG" },
 
   // Drawings
-  { id: 19, title: "Camille", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Camille.JPG" },
-  { id: 20, title: "Ballerina 1", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 1.JPG" },
-  { id: 21, title: "Ballerina 2", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 2.JPG" },
-  { id: 22, title: "Ballerina 3", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 3.JPG" },
-  { id: 23, title: "Ballerina 4", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 4.JPG" },
-  { id: 24, title: "Izabel", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 5.JPG" },
-  { id: 25, title: "Vivi", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 6.JPG" },
-  { id: 17, title: "Winston Churchill", category: "Portrait Drawing", image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg" },
-  { id: 15, title: "Gypsy Girl", category: "Portrait Drawing", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg" },
-  { id: 16, title: "Ariane", category: "Portrait Drawing", image: "/Portrait drawing/Graphite Drawing Ariane_.jpg" },
-  { id: 18, title: "Alaina", category: "Portrait Drawing", image: "/Portrait drawing/Graphite Portrait Alaina.jpg" },
+  { id: 19, title: "Camille", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Camille.JPG" },
+  { id: 20, title: "Ballerina 1", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Girl 1.JPG" },
+  { id: 21, title: "Ballerina 2", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Girl 2.JPG" },
+  { id: 22, title: "Ballerina 3", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Girl 3.JPG" },
+  { id: 23, title: "Ballerina 4", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Girl 4.JPG" },
+  { id: 24, title: "Izabel", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Girl 5.JPG" },
+  { id: 25, title: "Vivi", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Girl 6.JPG" },
+  { id: 17, title: "Winston Churchill", category: "Graphite Drawings", image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg" },
+  { id: 18, title: "Alaina", category: "Graphite Drawings", image: "/Portrait drawing/Graphite Portrait Alaina.jpg" },
+  { id: 16, title: "Ariane", category: "Graphite Drawings", image: "/Portrait drawing/Graphite Drawing Ariane_.jpg" },
+  { id: 15, title: "Gypsy Girl", category: "Charcoal Studies", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg" },
 
   // Pet Portraits
-  { id: 26, title: "Benny", category: "Pet Portrait", image: "/Pet portrait/Pet Portrait Oil Benny.jpg" },
+  { id: 26, title: "Benny", category: "Pet Portraits", image: "/Pet portrait/Pet Portrait Oil Benny.jpg" },
 
   // Artworks For Sale
   { id: 27, title: "Alaina", category: "Artworks For Sale", price: "$200", image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG" },
@@ -56,7 +56,9 @@ const subcategories = [
   "All",
   "Portrait Paintings",
   "Portrait Oil Sketch",
-  "Portrait Drawing",
+  "Pastel Drawings",
+  "Graphite Drawings",
+  "Charcoal Studies"
   "Pet Portrait",
   "Artworks For Sale"
 ];
