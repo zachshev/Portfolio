@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const availableArtworks = [
   {
     id: 1,
-    title: "Alaina (Study)",
+    title: "Alaina",
     size: "8 x 10 inches",
     medium: "Portrait Oil Sketch",
     price: "$200",
@@ -16,7 +16,7 @@ const availableArtworks = [
   },
   {
     id: 2,
-    title: "Muse (Large)",
+    title: "Muse",
     size: "18 x 24 inches",
     medium: "Portrait Oil Sketch",
     price: "$500",
@@ -25,7 +25,7 @@ const availableArtworks = [
   },
   {
     id: 3,
-    title: "Rebecca (Study)",
+    title: "Rebecca",
     size: "11 x 14 inches",
     medium: "Portrait Oil Sketch",
     price: "$300",
@@ -34,7 +34,7 @@ const availableArtworks = [
   },
   {
     id: 4,
-    title: "Goatee Study",
+    title: "Chuck",
     size: "18 x 24 inches",
     medium: "Portrait Oil Sketch",
     price: "$500",
