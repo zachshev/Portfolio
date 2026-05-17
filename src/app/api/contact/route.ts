@@ -1,17 +1,21 @@
+import { NextResponse } from "next/server";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
 
     console.log("Contact Form Submission:", body);
 
-    return Response.json({
+    return NextResponse.json({
       success: true,
     });
   } catch (error) {
-    return Response.json(
+    console.error(error);
+
+    return NextResponse.json(
       {
         success: false,
-        error: "Something went wrong",
+        error: "Something went wrong.",
       },
       { status: 500 }
     );
