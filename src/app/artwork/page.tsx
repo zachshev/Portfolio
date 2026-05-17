@@ -11,6 +11,7 @@ const artworks = [
   { id: 34, title: "The Greenwalds", category: "Portrait Paintings", image: "/Portrait Paintings/The Greenwalds.jpg" },
 
   // Oil Sketches
+  { id: 14, title: "Goatee Study", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Sketch Oil Goatee.jpg" },
   { id: 1, title: "Ana", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Ana.jpg" },
   { id: 2, title: "Bob", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Bob.jpg" },
   { id: 3, title: "Jim", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Jim.jpg" },
@@ -24,7 +25,6 @@ const artworks = [
   { id: 11, title: "Rebecca", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG" },
   { id: 12, title: "Sara", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sara.JPG" },
   { id: 13, title: "Sherman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sherman.PNG" },
-  { id: 14, title: "Goatee Study", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Sketch Oil Goatee.jpg" },
 
   // Drawings
   { id: 15, title: "Gypsy", category: "Portrait Drawing", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg" },
