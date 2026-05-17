@@ -20,7 +20,7 @@ const homepageItems = [
   {
     title: "Oil Sketches",
     href: "/artwork?category=Portrait%20Oil%20Sketch",
-    image: "/Portrait oil sketch/Oil Sketch Ana.jpg",
+    image: "/Portrait oil sketch/Oil Sketch Rebecca.jpg",
     className: "md:col-span-4",
   },
   {
