@@ -10,24 +10,32 @@
   :root {
     --background: #D9D9D4;
     --foreground: #2a2a2a;
-    --primary: #4E5D68;
+    --primary: #465761;
     --primary-foreground: #D9D9D4;
     --secondary: #e6e6e2;
     --secondary-foreground: #2a2a2a;
     --muted: #c9c9c4;
     --muted-foreground: #5a5a5a;
-    --accent: #a68a64;
+    --accent: #465761;
     --accent-foreground: #ffffff;
     --border: #c9c9c4;
     --input: #c9c9c4;
-    --ring: #a68a64;
+    --ring: #465761;
     --radius: 0;
   }
-}
 
-@layer base {
   body {
-    @apply bg-[var(--background)] text-[var(--foreground)] antialiased selection:bg-[var(--accent)] selection:text-white;
+    @apply bg-[var(--background)] text-[var(--foreground)] antialiased;
+  }
+
+  ::selection {
+    background: #465761;
+    color: #ffffff;
+  }
+
+  ::-moz-selection {
+    background: #465761;
+    color: #ffffff;
   }
 }
 
