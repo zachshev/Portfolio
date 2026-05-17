@@ -93,9 +93,7 @@ const pricingData = [
       },
       {
         subcategory: "Full Body",
-        prices: [
-          { size: "24” × 36”", price: "Starting at $6,000" },
-        ],
+        prices: [{ size: "24” × 36”", price: "Starting at $6,000" }],
       },
     ],
   },
@@ -185,7 +183,7 @@ export default function CommissionProcessPage() {
       </motion.div>
 
       <div className="space-y-24">
-        {steps.map((step, idx) => (
+        {steps.map((step) => (
           <motion.div
             key={step.number}
             initial={{ opacity: 0, y: 30 }}
@@ -194,13 +192,15 @@ export default function CommissionProcessPage() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col md:flex-row gap-8 md:gap-16 items-start"
           >
-            <div className="font-serif text-3xl md:text-5xl text-[var(--accent)] opacity-50 shrink-0 w-16">
+            <div className="font-serif text-3xl md:text-5xl text-[#465761] opacity-60 shrink-0 w-16">
               {step.number}
             </div>
+
             <div>
               <h2 className="font-serif text-2xl md:text-3xl tracking-widest text-[#2a2a2a] mb-4">
                 {step.title}
               </h2>
+
               <div className="font-sans text-[#2a2a2a]/80 leading-relaxed text-lg font-light space-y-4">
                 {step.description.map((p, i) => (
                   <p key={i}>{p}</p>
@@ -211,7 +211,6 @@ export default function CommissionProcessPage() {
         ))}
       </div>
 
-      {/* Pricing Section */}
       <div className="mt-32 pt-24 border-t border-[#2a2a2a]/10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -226,7 +225,7 @@ export default function CommissionProcessPage() {
         </motion.div>
 
         <div className="space-y-32">
-          {pricingData.map((section, idx) => (
+          {pricingData.map((section) => (
             <motion.div
               key={section.category}
               initial={{ opacity: 0, y: 30 }}
@@ -243,20 +242,23 @@ export default function CommissionProcessPage() {
                 {section.items.map((item, itemIdx) => (
                   <div key={itemIdx} className="flex flex-col">
                     {item.subcategory && (
-                      <h4 className="font-serif text-xl tracking-widest text-[var(--accent)] mb-6 uppercase text-sm">
+                      <h4 className="font-serif text-xl tracking-widest text-[#465761] mb-6 uppercase text-sm">
                         {item.subcategory}
                       </h4>
                     )}
+
                     <ul className="space-y-4">
                       {item.prices.map((priceLine, priceIdx) => (
                         <li
                           key={priceIdx}
                           className="flex justify-between items-baseline group"
                         >
-                          <span className="font-sans text-[#2a2a2a]/80 text-lg font-light group-hover:text-[var(--accent)] transition-colors duration-300">
+                          <span className="font-sans text-[#2a2a2a]/80 text-lg font-light group-hover:text-[#465761] transition-colors duration-300">
                             {priceLine.size}
                           </span>
-                          <div className="flex-1 mx-4 border-b border-dashed border-[#2a2a2a]/20 opacity-50 relative top-[-6px]"></div>
+
+                          <div className="flex-1 mx-4 border-b border-dashed border-[#2a2a2a]/20 opacity-50 relative top-[-6px]" />
+
                           <span className="font-serif text-[#2a2a2a] text-lg tracking-wider">
                             {priceLine.price}
                           </span>
@@ -281,18 +283,22 @@ export default function CommissionProcessPage() {
         <h2 className="font-serif text-2xl md:text-3xl tracking-widest text-[#2a2a2a] mb-8 uppercase">
           Final Notes
         </h2>
+
         <div className="space-y-4 mb-12">
           <p className="font-sans text-[#2a2a2a]/80 leading-relaxed text-lg font-light">
-            Because each painting is created through a highly individualized process, only a limited number of commissions are accepted each year.
+            Because each painting is created through a highly individualized
+            process, only a limited number of commissions are accepted each year.
           </p>
+
           <p className="font-sans text-[#2a2a2a]/80 leading-relaxed text-lg font-light">
-            For commission inquiries, availability, or additional information, please visit the Contact page.
+            For commission inquiries, availability, or additional information,
+            please visit the Contact page.
           </p>
         </div>
 
         <Link
           href="/contact"
-          className="inline-block border border-[var(--accent)] text-[#2a2a2a] px-12 py-4 font-sans text-sm tracking-widest uppercase hover:bg-[var(--accent)] hover:text-white transition-colors duration-500"
+          className="inline-block bg-[#465761] border border-[#465761] text-white px-12 py-4 font-sans text-sm tracking-widest uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
         >
           Contact Zach
         </Link>
