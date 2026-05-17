@@ -53,7 +53,7 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
             alt={cat.title}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
+            className="object-contain transition-transform duration-1000 group-hover:scale-[1.02]"
           />
         </div>
 
