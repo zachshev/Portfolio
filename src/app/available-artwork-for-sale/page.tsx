@@ -54,19 +54,19 @@ function ArtworkRow({ art, idx }: { art: any; idx: number }) {
         idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
       } gap-8 md:gap-16 lg:gap-24 items-center group`}
     >
-      <div className={`w-full md:w-1/2 relative shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm bg-[#D9D9D4]/20 flex justify-center items-center`}>
+      <div className="w-full md:w-1/2 relative shadow-[0_20px_40px_rgba(0,0,0,0.08)] group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.15)] transition-shadow duration-1000 rounded-sm bg-[#D9D9D4]/20 flex justify-center items-center">
         <div className="w-full">
           <Image
             src={art.image}
             alt={art.title}
-            width={0}
-            height={0}
+            width={1200}
+            height={1600}
             sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ width: '100%', height: 'auto' }}
+            style={{ width: "100%", height: "auto" }}
             className="transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)]"
           />
         </div>
-        {/* Subtle Overlay */}
+
         <div className="absolute inset-0 bg-[#2a2a2a]/0 transition-all duration-[1s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-[#2a2a2a]/10 pointer-events-none border border-white/0 group-hover:border-white/10" />
       </div>
 
@@ -78,14 +78,18 @@ function ArtworkRow({ art, idx }: { art: any; idx: number }) {
         <h2 className="font-serif text-4xl md:text-5xl text-[#2a2a2a] mb-4">
           {art.title}
         </h2>
+
         <div className="font-sans text-sm tracking-widest uppercase text-[#2a2a2a]/60 space-y-2 mb-10">
           <p>{art.medium}</p>
           <p>{art.size}</p>
-          <p className="text-[var(--accent)] mt-6 font-medium text-base">{art.price}</p>
+          <p className="text-[#465761] mt-6 font-medium text-base">
+            {art.price}
+          </p>
         </div>
+
         <Link
           href={`/contact?subject=Inquiry about ${art.title}`}
-          className="inline-block border border-[var(--accent)] text-[#2a2a2a] px-12 py-4 font-sans text-xs tracking-widest uppercase hover:bg-[var(--accent)] hover:text-white transition-all duration-500 hover:shadow-[0_10px_20px_rgba(166,138,100,0.15)] hover:-translate-y-1"
+          className="inline-block bg-[#465761] border border-[#465761] text-white px-12 py-4 font-sans text-xs tracking-widest uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
         >
           Contact To Purchase
         </Link>
@@ -106,6 +110,7 @@ export default function AvailableArtworkPage() {
         <h1 className="font-serif text-5xl md:text-7xl text-[#2a2a2a] tracking-widest uppercase mb-6 drop-shadow-sm">
           Available Works
         </h1>
+
         <p className="font-sans text-sm tracking-widest uppercase text-[#2a2a2a]/60">
           Original pieces currently available for acquisition.
         </p>
