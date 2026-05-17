@@ -43,22 +43,21 @@ const homepageItems = [
   },
 ];
 
-function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
+function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
   return (
-    <Link href={cat.href} className={`block ${cat.className}`}>
-      <div className="w-fit max-w-full mx-auto">
-        <div className="mb-6 group cursor-pointer overflow-hidden">
+    <Link href={cat.href} className={`block w-full ${cat.className}`}>
+      <div className="w-full">
+        <div className="relative w-full h-[520px] mb-6 group cursor-pointer overflow-hidden">
           <Image
             src={cat.image}
             alt={cat.title}
-            width={1200}
-            height={900}
+            fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="h-[520px] w-auto max-w-full object-contain transition-transform duration-1000"
+            className="object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
           />
         </div>
 
-        <div className="flex justify-between items-center gap-12 w-full">
+        <div className="flex justify-between items-center gap-8 w-full">
           <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
             {cat.title}
           </h3>
@@ -74,8 +73,8 @@ function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-6 md:px-12 flex flex-col items-center">
-      <section className="min-h-[60vh] flex flex-col items-center justify-center text-center py-24 relative">
+    <div className="w-full">
+      <section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 py-24 relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -98,7 +97,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="w-full grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 pb-32 items-start">
+      <section className="w-full max-w-[1500px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-24 md:gap-x-20 lg:gap-x-28 pb-32 items-start">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
