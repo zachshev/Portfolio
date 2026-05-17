@@ -31,15 +31,26 @@ export default function AboutPage() {
           <h1 className="font-serif text-4xl md:text-6xl text-[#2a2a2a] tracking-widest uppercase mb-8">
             Zach Shev
           </h1>
+
           <div className="font-sans text-[#2a2a2a]/80 leading-relaxed text-lg font-light space-y-6 mb-12">
             <p>
-              Zach Shev is a contemporary fine artist specializing in classical portraiture. Drawing inspiration from the grand masters, his work seeks to capture the timeless essence and profound depth of the human spirit.
+              Zach Shev is a contemporary fine artist specializing in classical
+              portraiture. Drawing inspiration from the grand masters, his work
+              seeks to capture the timeless essence and profound depth of the
+              human spirit.
             </p>
+
             <p>
-              Trained in the rigorous traditions of classical realism, Zach's approach combines meticulous observation with an emotive, painterly touch. Each portrait is treated as an heirloom—a quiet, lasting testament to the individual's character and presence.
+              Trained in the rigorous traditions of classical realism, Zach's
+              approach combines meticulous observation with an emotive,
+              painterly touch. Each portrait is treated as an heirloom—a quiet,
+              lasting testament to the individual's character and presence.
             </p>
+
             <p>
-              His studio practice is defined by a dedication to craftsmanship, utilizing premium archival materials and traditional layering techniques that imbue his canvases with luminosity and life.
+              His studio practice is defined by a dedication to craftsmanship,
+              utilizing premium archival materials and traditional layering
+              techniques that imbue his canvases with luminosity and life.
             </p>
           </div>
 
@@ -48,15 +59,16 @@ export default function AboutPage() {
               href="https://instagram.com/zachshev"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[var(--accent)] text-[#2a2a2a] px-10 py-3 font-sans text-xs tracking-widest uppercase hover:bg-[var(--accent)] hover:text-white transition-colors duration-500"
+              className="bg-[#465761] border border-[#465761] text-white px-10 py-4 text-xs tracking-[0.35em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
             >
               Instagram
             </a>
+
             <a
               href="https://www.wattsatelier.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block border border-[var(--accent)] text-[#2a2a2a] px-10 py-3 font-sans text-xs tracking-widest uppercase hover:bg-[var(--accent)] hover:text-white transition-colors duration-500"
+              className="border border-[#465761] text-[#465761] px-10 py-4 text-xs tracking-[0.35em] uppercase hover:bg-[#465761] hover:text-white transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
             >
               Watts Atelier
             </a>
