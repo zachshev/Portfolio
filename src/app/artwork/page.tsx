@@ -28,7 +28,7 @@ const artworks = [
 
   // Drawings
   { id: 19, title: "Camille", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Camille.JPG" },
-  { id: 20, title: "Ballerina 1, category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 1.JPG" },
+  { id: 20, title: "Ballerina 1", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 1.JPG" },
   { id: 21, title: "Ballerina 2", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 2.JPG" },
   { id: 22, title: "Ballerina 3", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 3.JPG" },
   { id: 23, title: "Ballerina 4", category: "Portrait Drawing", image: "/Portrait drawing/Pastel Drawing Girl 4.JPG" },
