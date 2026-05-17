@@ -22,7 +22,8 @@ export default function CommissionPortraitPage() {
           onSubmit={async (e) => {
             e.preventDefault();
 
-            const formData = new FormData(e.currentTarget);
+            const form = e.currentTarget;
+            const formData = new FormData(form);
 
             const data = {
               name: formData.get("name"),
@@ -59,6 +60,7 @@ ${formData.get("timeline")}
 
             if (response.ok) {
               alert("Inquiry submitted successfully.");
+              form.reset();
             } else {
               alert("Something went wrong.");
             }
@@ -73,6 +75,7 @@ ${formData.get("timeline")}
               <input
                 type="text"
                 name="name"
+                required
                 className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
               />
             </div>
@@ -85,6 +88,7 @@ ${formData.get("timeline")}
               <input
                 type="email"
                 name="email"
+                required
                 className="w-full bg-transparent border-b border-[#2a2a2a]/20 pb-4 outline-none"
               />
             </div>
@@ -110,6 +114,7 @@ ${formData.get("timeline")}
             <textarea
               rows={6}
               name="portraitDescription"
+              required
               className="w-full bg-transparent border-b border-[#2a2a2a]/20 outline-none resize-none"
             />
           </div>
@@ -167,7 +172,7 @@ ${formData.get("timeline")}
           <div className="pt-8">
             <button
               type="submit"
-              className="border border-[#2a2a2a]/25 px-14 py-5 text-xs tracking-[0.35em] uppercase hover:bg-[#2a2a2a] hover:text-[#D9D9D4] transition-all duration-500"
+              className="bg-[#465761] border border-[#465761] text-white px-14 py-5 text-xs tracking-[0.35em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
             >
               Submit
             </button>
