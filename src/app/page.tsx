@@ -10,36 +10,42 @@ const homepageItems = [
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
     className: "md:col-span-8",
+    imageWidth: "max-w-[760px]",
   },
   {
     title: "Pastel Drawings",
     href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
     className: "md:col-span-4 md:-ml-10 lg:-ml-16",
+    imageWidth: "max-w-[420px]",
   },
   {
     title: "Oil Sketches",
     href: "/artwork?category=Portrait%20Oil%20Sketch",
     image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG",
     className: "md:col-span-4",
+    imageWidth: "max-w-[420px]",
   },
   {
     title: "Graphite Portraits",
     href: "/artwork?category=Graphite%20Drawings",
     image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
     className: "md:col-span-4",
+    imageWidth: "max-w-[420px]",
   },
   {
     title: "Charcoal Studies",
     href: "/artwork?category=Charcoal%20Studies",
     image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
     className: "md:col-span-4",
+    imageWidth: "max-w-[420px]",
   },
   {
     title: "Pet Portraits",
     href: "/artwork?category=Pet%20Portrait",
     image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
     className: "md:col-span-4 md:col-start-5",
+    imageWidth: "max-w-[420px]",
   },
 ];
 
@@ -47,24 +53,26 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
   return (
     <Link href={cat.href} className={`block w-full ${cat.className}`}>
       <div className="w-full flex flex-col items-center">
-        <div className="relative w-full h-[520px] mb-6 group cursor-pointer overflow-hidden">
-          <Image
-            src={cat.image}
-            alt={cat.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-contain transition-transform duration-1000 group-hover:scale-[1.02]"
-          />
-        </div>
+        <div className={`w-full ${cat.imageWidth}`}>
+          <div className="relative w-full h-[520px] mb-6 group cursor-pointer overflow-hidden">
+            <Image
+              src={cat.image}
+              alt={cat.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-contain transition-transform duration-1000 group-hover:scale-[1.02]"
+            />
+          </div>
 
-        <div className="flex justify-between items-center w-full px-1">
-          <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
-            {cat.title}
-          </h3>
+          <div className="flex justify-between items-center w-full">
+            <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
+              {cat.title}
+            </h3>
 
-          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap text-right">
-            View Collection
-          </span>
+            <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap text-right">
+              View Collection
+            </span>
+          </div>
         </div>
       </div>
     </Link>
