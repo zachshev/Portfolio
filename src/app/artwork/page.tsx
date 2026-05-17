@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useState, useEffect, Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 const artworks = [
@@ -83,18 +83,18 @@ function ArtworkCard({ art }: { art: any }) {
         />
       </div>
 
-      <div className="flex justify-between items-start gap-6 px-1">
-        <h3 className="font-serif text-base md:text-lg tracking-wider text-[#2a2a2a]">
+      <div className="flex justify-between items-start gap-5 px-1">
+        <h3 className="font-serif text-lg md:text-lg tracking-wider text-[#2a2a2a] leading-tight">
           {art.title}
         </h3>
 
-        <div className="flex flex-col items-end text-right shrink-0">
-          <span className="font-sans text-[10px] md:text-[11px] tracking-widest uppercase text-[#2a2a2a]/50">
+        <div className="flex flex-col items-end text-right shrink-0 max-w-[48%]">
+          <span className="font-sans text-[10px] md:text-[11px] tracking-widest uppercase text-[#2a2a2a]/50 leading-relaxed">
             {art.category}
           </span>
 
           {art.price && (
-            <span className="font-sans text-xs tracking-widest text-[#2a2a2a] mt-1">
+            <span className="font-sans text-sm md:text-xs tracking-widest text-[#2a2a2a] mt-1">
               {art.price}
             </span>
           )}
@@ -102,10 +102,10 @@ function ArtworkCard({ art }: { art: any }) {
       </div>
 
       {art.price && (
-        <div className="px-1 mt-4">
+        <div className="px-1 mt-5 mb-8 md:mb-0 relative z-10">
           <a
             href="/contact"
-            className="inline-block bg-[#465761] border border-[#465761] text-white px-5 py-3 text-[10px] uppercase tracking-widest hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-300"
+            className="inline-block bg-[#465761] border border-[#465761] text-white px-5 md:px-8 py-3 md:py-4 font-sans text-[10px] md:text-xs tracking-[0.18em] md:tracking-[0.25em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
           >
             Inquire to Purchase
           </a>
@@ -137,9 +137,6 @@ function ArtworkGallery() {
     return art.category === activeCategory;
   });
 
-  const leftColumn = filteredArtworks.filter((_, idx) => idx % 2 === 0);
-  const rightColumn = filteredArtworks.filter((_, idx) => idx % 2 !== 0);
-
   return (
     <div className="container mx-auto px-6 md:px-12 py-12 md:py-24">
       <motion.div
@@ -161,7 +158,7 @@ function ArtworkGallery() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="flex flex-wrap gap-4 md:gap-8 mb-16 md:mb-20"
+        className="flex flex-wrap gap-4 md:gap-8 mb-14 md:mb-20"
       >
         {subcategories.map((cat) => (
           <button
@@ -179,18 +176,15 @@ function ArtworkGallery() {
         ))}
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 md:gap-x-24">
-        <div className="flex flex-col gap-y-14 md:gap-y-20">
-          {leftColumn.map((art) => (
-            <ArtworkCard key={`${activeCategory}-${art.id}`} art={art} />
-          ))}
-        </div>
-
-        <div className="flex flex-col gap-y-14 md:gap-y-20 md:pt-24">
-          {rightColumn.map((art) => (
-            <ArtworkCard key={`${activeCategory}-${art.id}`} art={art} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-16 md:gap-y-0 gap-x-12 md:gap-x-24">
+        {filteredArtworks.map((art, idx) => (
+          <div
+            key={`${activeCategory}-${art.id}`}
+            className={idx % 2 !== 0 ? "md:mt-24" : ""}
+          >
+            <ArtworkCard art={art} />
+          </div>
+        ))}
       </div>
 
       {filteredArtworks.length === 0 && (
