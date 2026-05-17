@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const artworks = [
   // Portrait Paintings
   { id: 34, title: "The Greenwalds", category: "Portrait Paintings", image: "/Portrait Paintings/The Greenwalds.jpg" },
-  { id: 31, title: "Portrait of the my Mother", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Mom.jpg" },
+  { id: 31, title: "Portrait of my Mother", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Mom.jpg" },
   { id: 32, title: "Sara", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Sara.jpg" },
   { id: 33, title: "Self Portrait", category: "Portrait Paintings", image: "/Portrait Paintings/Self Portrait.jpg" },
 
