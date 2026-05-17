@@ -42,4 +42,11 @@ const artworks = [
   { id: 15, title: "Gypsy Girl", category: "Charcoal Studies", image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg" },
 
   // Pet Portraits
-  { id: 26, title: "B
+  { id: 26, title: "Benny", category: "Pet Portrait", image: "/Pet portrait/Pet Portrait Oil Benny.jpg" },
+
+    // Artworks For Sale
+  { id: 27, title: "Alaina", category: "Artworks For Sale", price: "$200", image: "/Artworks For Sale/(Price - $200)Portrait Oil Sketch Alaina (Size 8_x10_).PNG" },
+  { id: 28, title: "Muse", category: "Artworks For Sale", price: "$500", image: "/Artworks For Sale/(Price 500)ortrait Oil Sketch Muse  (Size 18_x24_).JPG" },
+  { id: 29, title: "Rebecca", category: "Artworks For Sale", price: "$300", image: "/Artworks For Sale/Price (300) - Portrait Oil Sketch Rebecca (size 11_x14_).JPG" },
+  { id: 30, title: "Chuck", category: "Artworks For Sale", price: "$500", image: "/Artworks For Sale/Price (500) Portrait Sketch Oil Goatee (Size 18_x24_).JPG" },
+];
