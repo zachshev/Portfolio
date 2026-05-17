@@ -211,7 +211,22 @@ export default function CommissionProcessPage() {
         ))}
       </div>
 
-      <div className="mt-32 pt-24 border-t border-[#2a2a2a]/10">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+        className="mt-28 md:mt-32 pt-20 md:pt-24 border-t border-[#2a2a2a]/10 text-center"
+      >
+        <Link
+          href="/commission-a-portrait"
+          className="inline-flex items-center justify-center bg-[#465761] border border-[#465761] text-white px-8 md:px-12 py-4 md:py-5 font-sans text-[10px] md:text-xs tracking-[0.22em] md:tracking-[0.3em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
+        >
+          Commission a Portrait
+        </Link>
+      </motion.div>
+
+      <div className="mt-20 md:mt-24 pt-20 md:pt-24 border-t border-[#2a2a2a]/10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -242,7 +257,7 @@ export default function CommissionProcessPage() {
                 {section.items.map((item, itemIdx) => (
                   <div key={itemIdx} className="flex flex-col">
                     {item.subcategory && (
-                      <h4 className="font-serif text-xl tracking-widest text-[#465761] mb-6 uppercase text-sm">
+                      <h4 className="font-serif text-sm tracking-widest text-[#465761] mb-6 uppercase">
                         {item.subcategory}
                       </h4>
                     )}
