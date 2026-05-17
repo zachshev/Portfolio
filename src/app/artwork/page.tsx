@@ -102,10 +102,10 @@ function ArtworkCard({ art }: { art: any }) {
       </div>
 
       {art.price && (
-        <div className="px-1 mt-4">
+        <div className="px-1 mt-3 md:mt-4">
           <a
             href="/contact"
-            className="inline-block bg-[#465761] border border-[#465761] text-white px-5 py-3 text-[10px] uppercase tracking-widest hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-300"
+            className="inline-block bg-[#465761] border border-[#465761] text-white px-5 md:px-8 py-3 md:py-4 font-sans text-[10px] md:text-xs tracking-[0.18em] md:tracking-[0.25em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
           >
             Inquire to Purchase
           </a>
