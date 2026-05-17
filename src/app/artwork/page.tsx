@@ -10,21 +10,21 @@ const artworks = [
   { id: 32, title: "Sara", category: "Portrait Paintings", image: "/Portrait Paintings/Portrait Painting Sara.jpg" },
   { id: 33, title: "Self Portrait", category: "Portrait Paintings", image: "/Portrait Paintings/Self Portrait.jpg" },
 
-  // Oil Sketches
+ // Oil Sketches
   { id: 14, title: "Chuck", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Sketch Oil Goatee.jpg" },
   { id: 9, title: "Muse", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Muse_.jpg" },
-  { id: 7, title: "Elderly Woman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Elderly Woman.PNG" },
+  { id: 11, title: "Rebecca", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG" },
+  { id: 5, title: "Alaina", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Alaina.PNG" },
   { id: 1, title: "Ana", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Ana.jpg" },
+  { id: 4, title: "Mattisse", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Mattisse.jpg" },
+  { id: 7, title: "Elderly Woman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Elderly Woman.PNG" },
+  { id: 8, title: "Johnathan", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Johnathan.JPG" },
   { id: 2, title: "Bob", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Bob.jpg" },
   { id: 3, title: "Jim", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Jim.jpg" },
-  { id: 4, title: "Mattisse", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Oil Sketch Mattisse.jpg" },
-  { id: 5, title: "Alaina", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Alaina.PNG" },
   { id: 6, title: "Stephanie", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Blonde Stephanie.PNG" },
-  { id: 8, title: "Johnathan", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Johnathan.JPG" },
   { id: 10, title: "Pearl Earring", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Pearl Earring.PNG" },
-  { id: 11, title: "Rebecca", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG" },
-  { id: 12, title: "Sara", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sara.JPG" },
   { id: 13, title: "Sherman", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sherman.PNG" },
+  { id: 12, title: "Sara", category: "Portrait Oil Sketch", image: "/Portrait oil sketch/Portrait Oil Sketch Sara.JPG" },
 
   // Drawings
   { id: 19, title: "Camille", category: "Pastel Drawings", image: "/Portrait drawing/Pastel Drawing Camille.JPG" },
