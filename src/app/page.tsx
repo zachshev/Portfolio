@@ -46,25 +46,24 @@ const homepageItems = [
 function CategoryCard({ cat }: { cat: typeof homepageItems[0] }) {
   return (
     <Link href={cat.href} className={`block ${cat.className}`}>
-      <div className="flex flex-col">
-        <div className="relative w-full h-[520px] mb-6 group cursor-pointer bg-[#D9DDD4]/20 overflow-hidden">
+      <div className="w-fit max-w-full mx-auto">
+        <div className="mb-6 group cursor-pointer overflow-hidden">
           <Image
             src={cat.image}
             alt={cat.title}
             width={1200}
             height={900}
             sizes="(max-width: 768px) 100vw, 50vw"
-            style={{ width: "100%", height: "100%", objectFit: "contain" }}
-            className="transition-transform duration-1000"
+            className="h-[520px] w-auto max-w-full object-contain transition-transform duration-1000"
           />
         </div>
 
-        <div className="flex justify-between items-center px-0">
+        <div className="flex justify-between items-center gap-12 w-full">
           <h3 className="font-serif text-xl tracking-[0.08em] text-[#2a2a2a]">
             {cat.title}
           </h3>
 
-          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50">
+          <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap">
             View Collection
           </span>
         </div>
@@ -94,7 +93,7 @@ export default function Home() {
             transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="font-sans text-lg md:text-xl text-[#2a2a2a]/70 tracking-widest uppercase max-w-2xl"
           >
-            Specialized Heirloom Portraiture designed to last for generations.
+            Heirloom Portraiture designed to last for generations.
           </motion.p>
         </motion.div>
       </section>
