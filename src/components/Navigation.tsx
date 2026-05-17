@@ -5,7 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-
 import Image from "next/image";
 
 const navLinks = [
@@ -27,11 +26,13 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -40,6 +41,7 @@ export default function Navigation() {
       document.body.style.overflow = "";
       document.documentElement.classList.remove("lenis-stopped");
     }
+
     return () => {
       document.body.style.overflow = "";
       document.documentElement.classList.remove("lenis-stopped");
@@ -48,19 +50,18 @@ export default function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed top-0 left-0 right-0 z-[100] bg-[#3E4D55] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isScrolled
-          ? "bg-[#3E4D55] py-4 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-b border-white/5"
-          : "bg-[#3E4D55] py-6 border-b border-transparent"
+          ? "py-3 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-b border-white/5"
+          : "py-5 md:py-6 border-b border-transparent"
       }`}
     >
-      <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Mobile Left Spacer to perfectly center the logo */}
-        <div className="w-6 md:hidden"></div>
+      <div className="mx-auto w-full max-w-[1500px] px-6 md:px-10 lg:px-12 flex items-center justify-between gap-8">
+        <div className="w-6 md:hidden" />
 
         <Link
           href="/"
-          className="hover:opacity-70 transition-opacity flex items-center justify-center flex-1 md:flex-none md:justify-start"
+          className="shrink-0 hover:opacity-70 transition-opacity flex items-center justify-center"
         >
           <Image
             src="/logo.png"
@@ -68,19 +69,18 @@ export default function Navigation() {
             width={400}
             height={266}
             className={`transition-all duration-700 w-auto object-contain brightness-0 invert ${
-              isScrolled ? "h-16 md:h-20" : "h-20 md:h-28"
+              isScrolled ? "h-14 md:h-14 lg:h-16" : "h-16 md:h-16 lg:h-20"
             }`}
             priority
           />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex items-center justify-end gap-5 lg:gap-7 xl:gap-9 min-w-0">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className={`text-sm tracking-widest uppercase transition-colors duration-300 hover:text-white ${
+              className={`font-sans text-[11px] lg:text-xs xl:text-sm tracking-[0.16em] lg:tracking-[0.18em] xl:tracking-[0.2em] uppercase whitespace-nowrap leading-none transition-colors duration-300 hover:text-white ${
                 pathname === link.href ? "text-white" : "text-white/70"
               }`}
             >
@@ -89,16 +89,15 @@ export default function Navigation() {
           ))}
         </nav>
 
-        {/* Mobile Nav Toggle */}
         <button
           className="md:hidden text-white/90 hover:text-white transition-colors w-6 flex justify-end"
           onClick={() => setIsMobileMenuOpen(true)}
+          aria-label="Open navigation menu"
         >
           <Menu className="w-6 h-6" />
         </button>
       </div>
 
-      {/* Mobile Nav Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -111,9 +110,11 @@ export default function Navigation() {
             <button
               className="absolute top-6 right-6 text-white/90 hover:text-white transition-colors p-4 z-[110]"
               onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close navigation menu"
             >
               <X className="w-8 h-8" />
             </button>
+
             <div className="flex flex-col items-center justify-center min-h-[100dvh] py-24 px-6">
               <nav className="flex flex-col items-center justify-center space-y-8 w-full">
                 {navLinks.map((link) => (
