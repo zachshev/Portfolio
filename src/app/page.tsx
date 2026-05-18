@@ -4,84 +4,96 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-const homepageItems = [
+const topRowItems = [
   {
     title: "Portrait Paintings",
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
-    className: "md:col-span-7 md:col-start-2",
-    imageWidth: "md:max-w-[750px]",
-    imageHeight: "h-[250px] sm:h-[320px] md:h-[420px] lg:h-[440px]",
+    width: "w-[720px]",
+    height: "h-[430px]",
   },
   {
     title: "Pastel Drawings",
     href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
-    className: "md:col-span-4 md:col-start-9 md:-ml-12 lg:-ml-20",
-    imageWidth: "md:max-w-[415px]",
-    imageHeight: "h-[390px] sm:h-[460px] md:h-[420px] lg:h-[440px]",
+    width: "w-[390px]",
+    height: "h-[430px]",
   },
+];
+
+const bottomRowItems = [
   {
     title: "Oil Sketches",
     href: "/artwork?category=Portrait%20Oil%20Sketch",
     image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG",
-    className: "md:col-span-4",
-    imageWidth: "md:max-w-[415px]",
-    imageHeight: "h-[390px] sm:h-[460px] md:h-[420px] lg:h-[440px]",
   },
   {
     title: "Graphite Portraits",
     href: "/artwork?category=Graphite%20Drawings",
     image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
-    className: "md:col-span-4",
-    imageWidth: "md:max-w-[415px]",
-    imageHeight: "h-[390px] sm:h-[460px] md:h-[420px] lg:h-[440px]",
   },
   {
     title: "Charcoal Studies",
     href: "/artwork?category=Charcoal%20Studies",
     image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
-    className: "md:col-span-4",
-    imageWidth: "md:max-w-[415px]",
-    imageHeight: "h-[390px] sm:h-[460px] md:h-[420px] lg:h-[440px]",
-  },
-  {
-    title: "Pet Portraits",
-    href: "/artwork?category=Pet%20Portraits",
-    image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
-    className: "md:col-span-4 md:col-start-5",
-    imageWidth: "md:max-w-[415px]",
-    imageHeight: "h-[390px] sm:h-[460px] md:h-[420px] lg:h-[440px]",
   },
 ];
 
-function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
+function TopRowCard({
+  item,
+}: {
+  item: (typeof topRowItems)[0];
+}) {
   return (
-    <Link href={cat.href} className={`block w-full ${cat.className}`}>
-      <div className="w-full flex flex-col items-center">
-        <div className={`w-full ${cat.imageWidth}`}>
-          <div
-            className={`relative w-full ${cat.imageHeight} mb-3 md:mb-4 group cursor-pointer overflow-hidden`}
-          >
-            <Image
-              src={cat.image}
-              alt={cat.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-contain transition-transform duration-1000 group-hover:scale-[1.02]"
-            />
-          </div>
+    <Link href={item.href} className="flex flex-col">
+      <div
+        className={`relative ${item.width} ${item.height} overflow-hidden group`}
+      >
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-contain transition-transform duration-1000 group-hover:scale-[1.02]"
+        />
+      </div>
 
-          <div className="flex justify-between items-start md:items-center w-full gap-4">
-            <h3 className="font-serif text-2xl md:text-xl leading-tight tracking-[0.08em] text-[#2a2a2a]">
-              {cat.title}
-            </h3>
+      <div className="flex justify-between items-center mt-4">
+        <h3 className="font-serif text-[2rem] tracking-[0.06em] text-[#2a2a2a] uppercase">
+          {item.title}
+        </h3>
 
-            <span className="font-sans text-xs tracking-widest uppercase text-[#2a2a2a]/50 whitespace-nowrap text-right pt-2 md:pt-0">
-              View Collection
-            </span>
-          </div>
-        </div>
+        <span className="font-sans text-xs tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap">
+          View Collection
+        </span>
+      </div>
+    </Link>
+  );
+}
+
+function BottomRowCard({
+  item,
+}: {
+  item: (typeof bottomRowItems)[0];
+}) {
+  return (
+    <Link href={item.href} className="flex flex-col items-center">
+      <div className="relative w-[350px] h-[350px] overflow-hidden group">
+        <Image
+          src={item.image}
+          alt={item.title}
+          fill
+          className="object-contain transition-transform duration-1000 group-hover:scale-[1.02]"
+        />
+      </div>
+
+      <div className="flex justify-between items-center w-full mt-4">
+        <h3 className="font-serif text-xl tracking-[0.06em] text-[#2a2a2a] uppercase">
+          {item.title}
+        </h3>
+
+        <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap">
+          View Collection
+        </span>
       </div>
     </Link>
   );
@@ -90,55 +102,57 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
 export default function Home() {
   return (
     <div className="w-full">
-      <section className="flex flex-col items-center justify-start text-center px-6 pt-3 md:pt-4 pb-3 md:pb-4 relative">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+      {/* HERO */}
+      <section className="flex flex-col items-center text-center pt-4 md:pt-6 pb-4">
+        <motion.h1
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2 }}
+          className="font-serif text-[2rem] md:text-6xl tracking-[0.08em] uppercase text-[#2a2a2a] mb-2"
         >
-          <h1 className="font-serif text-[2rem] md:text-5xl lg:text-6xl tracking-[0.08em] text-[#2a2a2a] mb-1 uppercase drop-shadow-sm">
-            Zach Shev
-          </h1>
-        </motion.div>
+          Zach Shev
+        </motion.h1>
 
-        <motion.div className="overflow-hidden">
-          <motion.p
-            initial={{ opacity: 0, y: 22 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              duration: 1.1,
-              delay: 0.35,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-            className="font-sans text-[10px] md:text-sm text-[#2a2a2a]/75 tracking-[0.22em] uppercase max-w-xl leading-relaxed font-bold"
-          >
-            Heirloom Portraiture designed to last for generations.
-          </motion.p>
-        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="font-sans text-[10px] md:text-sm font-bold tracking-[0.22em] uppercase text-[#2a2a2a]/75 leading-relaxed"
+        >
+          Heirloom Portraiture designed to last for generations.
+        </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 1,
-            delay: 0.65,
-            ease: [0.16, 1, 0.3, 1],
-          }}
-          className="mt-3 md:mt-4"
+          transition={{ duration: 1, delay: 0.4 }}
+          className="mt-4"
         >
           <Link
             href="/commission-process"
-            className="inline-flex items-center justify-center bg-[#465761] border border-[#465761] text-white px-6 md:px-9 py-2.5 md:py-3 font-sans text-[9px] md:text-[10px] tracking-[0.24em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
+            className="inline-flex items-center justify-center bg-[#465761] border border-[#465761] text-white px-8 py-3 font-sans text-[10px] tracking-[0.24em] uppercase hover:bg-[#3b4a53] transition-all duration-500"
           >
             Commission a Portrait
           </Link>
         </motion.div>
       </section>
 
-      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-14 md:gap-x-10 lg:gap-x-14 pb-16 md:pb-20 items-start mt-5 md:mt-6">
-        {homepageItems.map((cat, idx) => (
-          <CategoryCard key={cat.title + idx} cat={cat} />
-        ))}
+      {/* TOP ROW */}
+      <section className="w-full flex justify-center mt-8">
+        <div className="flex items-start justify-center gap-24">
+          {topRowItems.map((item) => (
+            <TopRowCard key={item.title} item={item} />
+          ))}
+        </div>
+      </section>
+
+      {/* BOTTOM ROW */}
+      <section className="w-full flex justify-center mt-20 pb-24">
+        <div className="grid grid-cols-3 gap-28">
+          {bottomRowItems.map((item) => (
+            <BottomRowCard key={item.title} item={item} />
+          ))}
+        </div>
       </section>
     </div>
   );
