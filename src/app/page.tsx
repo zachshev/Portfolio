@@ -39,16 +39,24 @@ const bottomRowItems = [
   },
 ];
 
-function TopRowCard({
-  item,
-}: {
-  item: (typeof topRowItems)[0];
-}) {
+function Caption({ title }: { title: string }) {
+  return (
+    <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 w-full mt-4">
+      <h3 className="font-serif text-[clamp(1rem,1.25vw,1.45rem)] leading-none tracking-[0.06em] text-[#2a2a2a] uppercase truncate">
+        {title}
+      </h3>
+
+      <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap">
+        View Collection
+      </span>
+    </div>
+  );
+}
+
+function TopRowCard({ item }: { item: (typeof topRowItems)[0] }) {
   return (
     <Link href={item.href} className="flex flex-col">
-      <div
-        className={`relative ${item.width} ${item.height} overflow-hidden group`}
-      >
+      <div className={`relative ${item.width} ${item.height} overflow-hidden group`}>
         <Image
           src={item.image}
           alt={item.title}
@@ -57,26 +65,14 @@ function TopRowCard({
         />
       </div>
 
-      <div className="flex justify-between items-center mt-4">
-        <h3 className="font-serif text-[2rem] tracking-[0.06em] text-[#2a2a2a] uppercase">
-          {item.title}
-        </h3>
-
-        <span className="font-sans text-xs tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap">
-          View Collection
-        </span>
-      </div>
+      <Caption title={item.title} />
     </Link>
   );
 }
 
-function BottomRowCard({
-  item,
-}: {
-  item: (typeof bottomRowItems)[0];
-}) {
+function BottomRowCard({ item }: { item: (typeof bottomRowItems)[0] }) {
   return (
-    <Link href={item.href} className="flex flex-col items-center">
+    <Link href={item.href} className="flex flex-col w-[350px]">
       <div className="relative w-[350px] h-[350px] overflow-hidden group">
         <Image
           src={item.image}
@@ -86,15 +82,7 @@ function BottomRowCard({
         />
       </div>
 
-      <div className="flex justify-between items-center w-full mt-4">
-        <h3 className="font-serif text-xl tracking-[0.06em] text-[#2a2a2a] uppercase">
-          {item.title}
-        </h3>
-
-        <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap">
-          View Collection
-        </span>
-      </div>
+      <Caption title={item.title} />
     </Link>
   );
 }
@@ -102,7 +90,6 @@ function BottomRowCard({
 export default function Home() {
   return (
     <div className="w-full">
-      {/* HERO */}
       <section className="flex flex-col items-center text-center pt-4 md:pt-6 pb-4">
         <motion.h1
           initial={{ opacity: 0, scale: 0.95 }}
@@ -137,16 +124,14 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* TOP ROW */}
       <section className="w-full flex justify-center mt-8">
-        <div className="flex items-start justify-center gap-24">
+        <div className="flex items-start justify-center gap-20">
           {topRowItems.map((item) => (
             <TopRowCard key={item.title} item={item} />
           ))}
         </div>
       </section>
 
-      {/* BOTTOM ROW */}
       <section className="w-full flex justify-center mt-20 pb-24">
         <div className="grid grid-cols-3 gap-28">
           {bottomRowItems.map((item) => (
