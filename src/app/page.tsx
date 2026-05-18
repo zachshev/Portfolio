@@ -90,13 +90,13 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
 export default function Home() {
   return (
     <div className="w-full">
-      <section className="min-h-[30vh] md:min-h-[36vh] flex flex-col items-center justify-start text-center px-6 pt-9 md:pt-12 pb-8 md:pb-10 relative">
+      <section className="flex flex-col items-center justify-start text-center px-6 pt-3 md:pt-5 pb-2 md:pb-4 relative">
         <motion.div
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h1 className="font-serif text-[2.45rem] md:text-6xl lg:text-7xl tracking-widest text-[#2a2a2a] mb-3 md:mb-4 uppercase drop-shadow-sm">
+          <h1 className="font-serif text-[2rem] md:text-5xl lg:text-6xl tracking-[0.08em] text-[#2a2a2a] mb-1 md:mb-2 uppercase drop-shadow-sm">
             Zach Shev
           </h1>
         </motion.div>
@@ -110,7 +110,7 @@ export default function Home() {
               delay: 0.35,
               ease: [0.16, 1, 0.3, 1],
             }}
-            className="font-sans text-xs md:text-lg text-[#2a2a2a]/75 tracking-widest uppercase max-w-2xl leading-relaxed font-bold"
+            className="font-sans text-[10px] md:text-sm text-[#2a2a2a]/75 tracking-[0.22em] uppercase max-w-xl leading-relaxed font-bold"
           >
             Heirloom Portraiture designed to last for generations.
           </motion.p>
@@ -124,18 +124,18 @@ export default function Home() {
             delay: 0.65,
             ease: [0.16, 1, 0.3, 1],
           }}
-          className="mt-4 md:mt-5"
+          className="mt-2 md:mt-3"
         >
           <Link
             href="/commission-process"
-            className="inline-flex items-center justify-center bg-[#465761] border border-[#465761] text-white px-7 md:px-11 py-3.5 md:py-4 font-sans text-[10px] md:text-xs tracking-[0.22em] md:tracking-[0.3em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
+            className="inline-flex items-center justify-center bg-[#465761] border border-[#465761] text-white px-6 md:px-9 py-2.5 md:py-3 font-sans text-[9px] md:text-[10px] tracking-[0.24em] uppercase hover:bg-[#3b4a53] hover:border-[#3b4a53] transition-all duration-500 hover:shadow-[0_10px_30px_rgba(0,0,0,0.15)] hover:-translate-y-1"
           >
             Commission a Portrait
           </Link>
         </motion.div>
       </section>
 
-      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-20 md:gap-x-16 lg:gap-x-24 pb-24 md:pb-32 items-start">
+      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-14 md:gap-x-16 lg:gap-x-24 pb-24 md:pb-32 items-start -mt-2 md:-mt-4">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
