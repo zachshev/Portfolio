@@ -10,48 +10,48 @@ const homepageItems = [
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
     className: "md:col-span-8",
-    imageWidth: "md:max-w-[835px]",
-    imageHeight: "h-[275px] sm:h-[350px] md:h-[470px] lg:h-[500px]",
+    imageWidth: "md:max-w-[980px]",
+    imageHeight: "h-[320px] sm:h-[400px] md:h-[565px] lg:h-[610px]",
   },
   {
     title: "Pastel Drawings",
     href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
-    className: "md:col-span-4 md:-ml-8 lg:-ml-12",
-    imageWidth: "md:max-w-[460px]",
-    imageHeight: "h-[430px] sm:h-[505px] md:h-[470px] lg:h-[500px]",
+    className: "md:col-span-4 md:-ml-10 lg:-ml-14",
+    imageWidth: "md:max-w-[560px]",
+    imageHeight: "h-[500px] sm:h-[580px] md:h-[565px] lg:h-[610px]",
   },
   {
     title: "Oil Sketches",
     href: "/artwork?category=Portrait%20Oil%20Sketch",
     image: "/Portrait oil sketch/Portrait Oil Sketch Rebecca.JPG",
     className: "md:col-span-4",
-    imageWidth: "md:max-w-[460px]",
-    imageHeight: "h-[430px] sm:h-[505px] md:h-[470px] lg:h-[500px]",
+    imageWidth: "md:max-w-[560px]",
+    imageHeight: "h-[500px] sm:h-[580px] md:h-[565px] lg:h-[610px]",
   },
   {
     title: "Graphite Portraits",
     href: "/artwork?category=Graphite%20Drawings",
     image: "/Portrait drawing/Graphite Drawing Winston Churchill.jpg",
     className: "md:col-span-4",
-    imageWidth: "md:max-w-[460px]",
-    imageHeight: "h-[430px] sm:h-[505px] md:h-[470px] lg:h-[500px]",
+    imageWidth: "md:max-w-[560px]",
+    imageHeight: "h-[500px] sm:h-[580px] md:h-[565px] lg:h-[610px]",
   },
   {
     title: "Charcoal Studies",
     href: "/artwork?category=Charcoal%20Studies",
     image: "/Portrait drawing/Charcoal Portrait Gypsy_.jpg",
     className: "md:col-span-4",
-    imageWidth: "md:max-w-[460px]",
-    imageHeight: "h-[430px] sm:h-[505px] md:h-[470px] lg:h-[500px]",
+    imageWidth: "md:max-w-[560px]",
+    imageHeight: "h-[500px] sm:h-[580px] md:h-[565px] lg:h-[610px]",
   },
   {
     title: "Pet Portraits",
     href: "/artwork?category=Pet%20Portraits",
     image: "/Pet portrait/Pet Portrait Oil Benny.jpg",
     className: "md:col-span-4 md:col-start-5",
-    imageWidth: "md:max-w-[460px]",
-    imageHeight: "h-[430px] sm:h-[505px] md:h-[470px] lg:h-[500px]",
+    imageWidth: "md:max-w-[560px]",
+    imageHeight: "h-[500px] sm:h-[580px] md:h-[565px] lg:h-[610px]",
   },
 ];
 
@@ -72,7 +72,7 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
             />
           </div>
 
-          <div className="flex justify-between items-start md:items-center w-full md:w-[88%] md:mx-auto gap-4">
+          <div className="flex justify-between items-start md:items-center w-full md:w-[90%] md:mx-auto gap-4">
             <h3 className="font-serif text-2xl md:text-xl leading-tight tracking-[0.08em] text-[#2a2a2a]">
               {cat.title}
             </h3>
@@ -135,7 +135,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="w-full max-w-[1540px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-14 md:gap-x-14 lg:gap-x-20 pb-24 md:pb-32 items-start mt-4 md:mt-6">
+      <section className="w-full max-w-[1820px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-16 md:gap-x-10 lg:gap-x-14 pb-24 md:pb-32 items-start mt-6 md:mt-8">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
