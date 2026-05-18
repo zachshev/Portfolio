@@ -42,11 +42,11 @@ const bottomRowItems = [
 function Caption({ title }: { title: string }) {
   return (
     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 w-full mt-4">
-      <h3 className="font-serif text-[clamp(1rem,1.25vw,1.45rem)] leading-none tracking-[0.06em] text-[#2a2a2a] uppercase truncate">
+      <h3 className="font-serif text-[clamp(0.95rem,1.05vw,1.25rem)] leading-none tracking-[0.055em] text-[#2a2a2a] uppercase truncate">
         {title}
       </h3>
 
-      <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap">
+      <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap justify-self-end text-right">
         View Collection
       </span>
     </div>
@@ -55,8 +55,8 @@ function Caption({ title }: { title: string }) {
 
 function TopRowCard({ item }: { item: (typeof topRowItems)[0] }) {
   return (
-    <Link href={item.href} className="flex flex-col">
-      <div className={`relative ${item.width} ${item.height} overflow-hidden group`}>
+    <Link href={item.href} className={`${item.width} flex flex-col`}>
+      <div className={`relative w-full ${item.height} overflow-hidden group`}>
         <Image
           src={item.image}
           alt={item.title}
@@ -72,8 +72,8 @@ function TopRowCard({ item }: { item: (typeof topRowItems)[0] }) {
 
 function BottomRowCard({ item }: { item: (typeof bottomRowItems)[0] }) {
   return (
-    <Link href={item.href} className="flex flex-col w-[350px]">
-      <div className="relative w-[350px] h-[350px] overflow-hidden group">
+    <Link href={item.href} className="w-[350px] flex flex-col">
+      <div className="relative w-full h-[350px] overflow-hidden group">
         <Image
           src={item.image}
           alt={item.title}
