@@ -168,7 +168,7 @@ function ArtworkGallery() {
             key={cat}
             type="button"
             onClick={() => setActiveCategory(cat)}
-            className={`font-sans text-xs md:text-sm tracking-widest uppercase transition-colors duration-500 pb-1 border-b ${
+            className={`font-sans font-bold text-xs md:text-sm tracking-widest uppercase transition-colors duration-500 pb-1 border-b ${
               activeCategory === cat
                 ? "text-[#2a2a2a] border-[#2a2a2a]"
                 : "text-[#2a2a2a]/40 border-transparent hover:text-[#2a2a2a]/70"
