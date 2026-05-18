@@ -24,7 +24,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -52,12 +52,12 @@ export default function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-[100] bg-[#3E4D55] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         isScrolled
-          ? "py-3 md:py-4 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-b border-white/5"
-          : "py-5 md:py-6 border-b border-transparent"
+          ? "py-2 md:py-2 shadow-[0_10px_30px_rgba(0,0,0,0.15)] border-b border-white/5"
+          : "py-2 md:py-3 border-b border-transparent"
       }`}
     >
-      <div className="mx-auto w-full max-w-[1520px] px-6 md:px-8 lg:px-10 xl:px-12 flex items-center justify-between gap-6 lg:gap-8">
-        <div className="w-8 md:hidden" />
+      <div className="mx-auto w-full max-w-[1520px] px-6 md:px-8 lg:px-10 xl:px-12 flex items-center justify-between gap-5 lg:gap-7">
+        <div className="w-7 md:hidden" />
 
         <Link
           href="/"
@@ -71,8 +71,8 @@ export default function Navigation() {
             height={600}
             className={`w-auto object-contain brightness-0 invert transition-all duration-700 ${
               isScrolled
-                ? "h-20 sm:h-24 md:h-20 lg:h-24 xl:h-28"
-                : "h-24 sm:h-28 md:h-24 lg:h-28 xl:h-32"
+                ? "h-10 sm:h-11 md:h-10 lg:h-11 xl:h-12"
+                : "h-12 sm:h-13 md:h-12 lg:h-13 xl:h-14"
             }`}
             priority
           />
@@ -93,11 +93,11 @@ export default function Navigation() {
         </nav>
 
         <button
-          className="md:hidden text-white/90 hover:text-white transition-colors w-8 flex justify-end"
+          className="md:hidden text-white/90 hover:text-white transition-colors w-7 flex justify-end"
           onClick={() => setIsMobileMenuOpen(true)}
           aria-label="Open navigation menu"
         >
-          <Menu className="w-8 h-8" />
+          <Menu className="w-7 h-7" />
         </button>
       </div>
 
@@ -124,7 +124,7 @@ export default function Navigation() {
                 alt="Zach Shev Logo"
                 width={900}
                 height={600}
-                className="w-auto h-32 object-contain brightness-0 invert mb-16"
+                className="w-auto h-28 object-contain brightness-0 invert mb-14"
                 priority
               />
 
