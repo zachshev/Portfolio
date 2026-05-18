@@ -9,7 +9,7 @@ const homepageItems = [
     title: "Portrait Paintings",
     href: "/artwork?category=Portrait%20Paintings",
     image: "/Portrait Paintings/The Greenwalds.jpg",
-    className: "md:col-span-8",
+    className: "md:col-span-7 md:col-start-2",
     imageWidth: "md:max-w-[750px]",
     imageHeight: "h-[250px] sm:h-[320px] md:h-[420px] lg:h-[440px]",
   },
@@ -17,7 +17,7 @@ const homepageItems = [
     title: "Pastel Drawings",
     href: "/artwork?category=Pastel%20Drawings",
     image: "/Portrait drawing/Pastel Drawing Camille.JPG",
-    className: "md:col-span-4 md:-ml-6 lg:-ml-10",
+    className: "md:col-span-4 md:col-start-9 md:-ml-12 lg:-ml-20",
     imageWidth: "md:max-w-[415px]",
     imageHeight: "h-[390px] sm:h-[460px] md:h-[420px] lg:h-[440px]",
   },
@@ -72,7 +72,7 @@ function CategoryCard({ cat }: { cat: (typeof homepageItems)[0] }) {
             />
           </div>
 
-          <div className="flex justify-between items-start md:items-center w-full md:w-[88%] md:mx-auto gap-4">
+          <div className="flex justify-between items-start md:items-center w-full gap-4">
             <h3 className="font-serif text-2xl md:text-xl leading-tight tracking-[0.08em] text-[#2a2a2a]">
               {cat.title}
             </h3>
@@ -135,7 +135,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-14 md:gap-x-14 lg:gap-x-18 pb-16 md:pb-20 items-start mt-5 md:mt-6">
+      <section className="w-full max-w-[1450px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-12 gap-y-14 md:gap-y-14 md:gap-x-10 lg:gap-x-14 pb-16 md:pb-20 items-start mt-5 md:mt-6">
         {homepageItems.map((cat, idx) => (
           <CategoryCard key={cat.title + idx} cat={cat} />
         ))}
