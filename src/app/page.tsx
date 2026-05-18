@@ -44,7 +44,7 @@ function Caption({ title }: { title: string }) {
     <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-6 w-full mt-4">
       <h3 className="font-serif text-[clamp(0.95rem,1.05vw,1.25rem)] leading-none tracking-[0.055em] text-[#2a2a2a] uppercase truncate">
         {title}
-      </h3>
+      </h3> font-bold
 
       <span className="font-sans text-[10px] tracking-[0.18em] uppercase text-[#2a2a2a]/45 whitespace-nowrap justify-self-end text-right">
         View Collection
